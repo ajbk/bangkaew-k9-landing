@@ -60,14 +60,14 @@ const reasons = [
     body: 'ออกแบบจากบริบท SME ไทย ทั้งภาษา ช่องทางแจ้งเตือน งบประมาณ และทีม IT ที่มักมีคนจำกัด จึงช่วยลดงานประจำวันโดยไม่เพิ่มความซับซ้อน',
   },
   {
-    title: 'Hardware + AI in one stack',
-    thai: 'เห็นเครือข่ายจริง วิเคราะห์ได้ทัน',
-    body: 'Edge Pro เก็บสัญญาณใกล้หน้างาน ส่วน Platform ช่วยวิเคราะห์ อธิบาย และแนะนำการตอบสนอง ทำให้ทีมรู้ว่าควรโฟกัสจุดไหนก่อน',
+    title: 'Practical deployment path',
+    thai: 'เริ่มจากไซต์จริง ขยายได้เป็นระบบ',
+    body: 'เริ่มจาก Edge Pro ที่ติดตั้งในเครือข่ายจริง แล้วเชื่อมกับ Platform เพื่อวิเคราะห์ แจ้งเตือน และเก็บประวัติการตัดสินใจ เหมาะกับการ pilot ก่อนขยายหลายสาขา',
   },
   {
-    title: 'Control stays with people',
-    thai: 'AI ช่วย แต่ไม่แย่งตัดสินใจ',
-    body: 'เหมาะกับเจ้าของกิจการและทีมเล็กที่อยากได้ความเร็วของ AI โดยยังมีมนุษย์อนุมัติก่อนจุดสำคัญ ลดความเสี่ยงจากการตอบสนองเกินจำเป็น',
+    title: 'Meaningful SME impact',
+    thai: 'ลดความเสียหายที่กระทบธุรกิจฐานราก',
+    body: 'ช่วยลดความเสี่ยงจาก phishing, ransomware, downtime และข้อมูลรั่วไหล ซึ่งเป็นเหตุที่กระทบยอดขาย ความเชื่อมั่น และ supply chain ของธุรกิจไทย',
   },
 ];
 
@@ -98,38 +98,23 @@ const outcomeDetails = [
       'เก็บ Audit Log ของเหตุการณ์ เหตุผล และการอนุมัติ เพื่อใช้ทบทวนหรือปรับ policy ในอนาคต',
     ],
   },
-];
-
-const accCriteria = [
   {
-    score: '25',
-    label: 'ประโยชน์ของ Solution',
-    title: 'เพิ่ม productivity ของทีมเล็ก ลดเวลารับมือภัย',
-    body: 'Bangkaew K9 ลดงานคัดกรอง Alert, แปลเหตุการณ์เป็นภาษาไทย, แนะนำลำดับการตอบสนอง และช่วยให้เจ้าของธุรกิจตัดสินใจเร็วขึ้นโดยไม่ต้องมี SOC เต็มรูปแบบ',
+    label: 'Pilot readiness',
+    title: 'พร้อมเริ่มจาก use case ที่พิสูจน์ผลได้',
+    points: [
+      'เริ่มจากการมองเห็นทราฟฟิกและ DNS risk ในไซต์จริง แล้วค่อยเพิ่ม policy หรือ response step ตามความพร้อมของธุรกิจ',
+      'มี flow การเล่า product ชัดเจนตั้งแต่เสียบ Edge Pro, ตรวจจับ, อธิบาย, แนะนำ และรออนุมัติก่อน action สำคัญ',
+      'เหมาะกับการนำเสนอเป็น demo สำหรับร้านค้า โรงงาน ออฟฟิศ และธุรกิจหลายสาขาที่ต้องการลดความเสี่ยงโดยไม่เพิ่มทีมใหญ่',
+    ],
   },
   {
-    score: '20',
-    label: 'ขนาดและความซับซ้อนของโครงการ',
-    title: 'Edge appliance + AI platform + human approval workflow',
-    body: 'โครงการครอบคลุมอุปกรณ์ Edge Pro, telemetry จากเครือข่าย, AI-assisted analysis, LINE / Email alert, risk scoring, recommendation และ audit log ในระบบเดียว',
-  },
-  {
-    score: '20',
-    label: 'ความพร้อมในการนำเสนอผลงาน',
-    title: 'พร้อมสาธิตเป็น product story ที่จับต้องได้',
-    body: 'มี landing page, hardware-first positioning, demo flow ชัดเจน และ use case สำหรับร้านค้า โรงงาน ออฟฟิศ และธุรกิจหลายสาขาที่กรรมการเข้าใจได้ทันที',
-  },
-  {
-    score: '20',
-    label: 'ความน่าสนใจและเหตุผลที่ควรสนับสนุน',
-    title: 'AI Cyber Watchdog สำหรับ SME ไทยโดยเฉพาะ',
-    body: 'ตลาด SME มีข้อจำกัดด้านคน งบ และภาษา Bangkaew K9 จึงเป็นโครงการที่ควรสนับสนุนเพราะทำให้ cybersecurity ระดับองค์กรเข้าถึงง่ายขึ้น',
-  },
-  {
-    score: '15',
-    label: 'ผลกระทบต่ออุตสาหกรรมหรือสังคม',
-    title: 'ยกระดับ cyber resilience ให้ธุรกิจฐานราก',
-    body: 'ช่วยลดความเสียหายจาก phishing, ransomware, downtime และข้อมูลรั่วไหลในธุรกิจไทย ส่งผลต่อ supply chain ลูกค้า พนักงาน และความเชื่อมั่นของเศรษฐกิจดิจิทัล',
+    label: 'Wider impact',
+    title: 'ยกระดับ cyber resilience ของ SME ไทย',
+    points: [
+      'ทำให้เครื่องมือ cybersecurity ที่ปกติซับซ้อนและแพง เข้าถึงได้สำหรับเจ้าของกิจการและทีม IT ขนาดเล็ก',
+      'ลดโอกาสเหตุไซเบอร์ลุกลามจากธุรกิจหนึ่งไปยังคู่ค้า ลูกค้า หรือระบบ supply chain',
+      'สร้างฐานข้อมูลเหตุการณ์และบทเรียนที่ช่วยให้ธุรกิจไทยปรับ policy และพฤติกรรมความปลอดภัยได้ต่อเนื่อง',
+    ],
   },
 ];
 
@@ -360,7 +345,7 @@ export default function Home() {
       <section id="thai-smes" className="section">
         <div className="section-heading">
           <p>Built for Thai SMEs</p>
-          <h2>ออกแบบให้ทีมเล็กทำงานเร็วขึ้น และลดความเสี่ยงที่กระทบรายได้</h2>
+          <h2>ออกแบบให้ทีมเล็กเริ่มใช้ได้จริง เห็นผลเร็ว และขยายต่อได้</h2>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {reasons.map((reason) => (
@@ -371,28 +356,6 @@ export default function Home() {
               <p>{reason.body}</p>
             </article>
           ))}
-        </div>
-        <div className="criteria-panel mt-5">
-          <div className="criteria-intro">
-            <p>ACC Program Alignment</p>
-            <h3>เนื้อหาโครงการครบตามเกณฑ์การให้คะแนน</h3>
-            <span>
-              จัดวางประเด็นให้กรรมการเห็นทั้งประโยชน์เชิงธุรกิจ ความซับซ้อนของระบบ
-              ความพร้อมในการนำเสนอ เหตุผลที่ควรสนับสนุน และผลกระทบต่อ SME ไทย
-            </span>
-          </div>
-          <div className="criteria-grid">
-            {accCriteria.map((item) => (
-              <article className="criteria-card" key={item.label}>
-                <div className="criteria-score">{item.score}</div>
-                <div>
-                  <p>{item.label}</p>
-                  <h4>{item.title}</h4>
-                  <span>{item.body}</span>
-                </div>
-              </article>
-            ))}
-          </div>
         </div>
       </section>
 
