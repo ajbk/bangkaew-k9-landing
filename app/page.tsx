@@ -100,6 +100,39 @@ const outcomeDetails = [
   },
 ];
 
+const accCriteria = [
+  {
+    score: '25',
+    label: 'ประโยชน์ของ Solution',
+    title: 'เพิ่ม productivity ของทีมเล็ก ลดเวลารับมือภัย',
+    body: 'Bangkaew K9 ลดงานคัดกรอง Alert, แปลเหตุการณ์เป็นภาษาไทย, แนะนำลำดับการตอบสนอง และช่วยให้เจ้าของธุรกิจตัดสินใจเร็วขึ้นโดยไม่ต้องมี SOC เต็มรูปแบบ',
+  },
+  {
+    score: '20',
+    label: 'ขนาดและความซับซ้อนของโครงการ',
+    title: 'Edge appliance + AI platform + human approval workflow',
+    body: 'โครงการครอบคลุมอุปกรณ์ Edge Pro, telemetry จากเครือข่าย, AI-assisted analysis, LINE / Email alert, risk scoring, recommendation และ audit log ในระบบเดียว',
+  },
+  {
+    score: '20',
+    label: 'ความพร้อมในการนำเสนอผลงาน',
+    title: 'พร้อมสาธิตเป็น product story ที่จับต้องได้',
+    body: 'มี landing page, hardware-first positioning, demo flow ชัดเจน และ use case สำหรับร้านค้า โรงงาน ออฟฟิศ และธุรกิจหลายสาขาที่กรรมการเข้าใจได้ทันที',
+  },
+  {
+    score: '20',
+    label: 'ความน่าสนใจและเหตุผลที่ควรสนับสนุน',
+    title: 'AI Cyber Watchdog สำหรับ SME ไทยโดยเฉพาะ',
+    body: 'ตลาด SME มีข้อจำกัดด้านคน งบ และภาษา Bangkaew K9 จึงเป็นโครงการที่ควรสนับสนุนเพราะทำให้ cybersecurity ระดับองค์กรเข้าถึงง่ายขึ้น',
+  },
+  {
+    score: '15',
+    label: 'ผลกระทบต่ออุตสาหกรรมหรือสังคม',
+    title: 'ยกระดับ cyber resilience ให้ธุรกิจฐานราก',
+    body: 'ช่วยลดความเสียหายจาก phishing, ransomware, downtime และข้อมูลรั่วไหลในธุรกิจไทย ส่งผลต่อ supply chain ลูกค้า พนักงาน และความเชื่อมั่นของเศรษฐกิจดิจิทัล',
+  },
+];
+
 const footerGroups = [
   {
     heading: 'Platform',
@@ -338,6 +371,28 @@ export default function Home() {
               <p>{reason.body}</p>
             </article>
           ))}
+        </div>
+        <div className="criteria-panel mt-5">
+          <div className="criteria-intro">
+            <p>ACC Program Alignment</p>
+            <h3>เนื้อหาโครงการครบตามเกณฑ์การให้คะแนน</h3>
+            <span>
+              จัดวางประเด็นให้กรรมการเห็นทั้งประโยชน์เชิงธุรกิจ ความซับซ้อนของระบบ
+              ความพร้อมในการนำเสนอ เหตุผลที่ควรสนับสนุน และผลกระทบต่อ SME ไทย
+            </span>
+          </div>
+          <div className="criteria-grid">
+            {accCriteria.map((item) => (
+              <article className="criteria-card" key={item.label}>
+                <div className="criteria-score">{item.score}</div>
+                <div>
+                  <p>{item.label}</p>
+                  <h4>{item.title}</h4>
+                  <span>{item.body}</span>
+                </div>
+              </article>
+            ))}
+          </div>
         </div>
       </section>
 
