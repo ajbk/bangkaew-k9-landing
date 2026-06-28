@@ -1,0 +1,379 @@
+import Image from 'next/image';
+
+const navItems = [
+  { label: 'Platform', href: '#platform' },
+  { label: 'Edge Pro', href: '#edge-device' },
+  { label: 'How it works', href: '#how-it-works' },
+  { label: 'Thai SMEs', href: '#thai-smes' },
+  { label: 'Why K9', href: '#why-k9' },
+];
+
+const platformCards = [
+  {
+    title: 'Detect early',
+    thai: 'เห็นภัยก่อน',
+    body: 'ตรวจจับสัญญาณผิดปกติจากเครือข่ายและอุปกรณ์ Edge ก่อนลุกลามเป็นเหตุใหญ่',
+    icon: '◎',
+  },
+  {
+    title: 'Explain clearly',
+    thai: 'เข้าใจเร็ว',
+    body: 'แปล Alert และ Incident เป็นภาษาไทย พร้อมบริบท ผลกระทบ และหลักฐานที่ทีมเล็กอ่านรู้เรื่อง',
+    icon: '✦',
+  },
+  {
+    title: 'Recommend actions',
+    thai: 'มีทางเลือกชัดเจน',
+    body: 'เสนอขั้นตอนรับมือที่ทำได้จริง พร้อมระดับความเสี่ยงและผลกระทบก่อนกดอนุมัติ',
+    icon: '☼',
+  },
+  {
+    title: 'Wait for approval',
+    thai: 'เจ้าของคุมเกม',
+    body: 'Human-in-the-Loop ก่อนตอบสนองกับระบบสำคัญ เพื่อให้ธุรกิจยังตัดสินใจเองเสมอ',
+    icon: '✓',
+  },
+];
+
+const edgeFeatures = [
+  ['Multi-LAN ready', 'รองรับ Monitor Mode และ Inline Mode สำหรับหลายสาขา'],
+  ['DNS & URL Guard', 'ช่วยกรองโดเมน เว็บ และปลายทางที่เสี่ยงก่อนเข้าถึง'],
+  ['AI-assisted analysis', 'ส่งสัญญาณสำคัญให้ Platform วิเคราะห์และสรุปเป็นภาษาไทย'],
+  ['LINE / Email alerts', 'แจ้งเตือนเหตุสำคัญให้เจ้าของและทีม IT โดยไม่ต้องเปิด Dashboard ตลอดเวลา'],
+  ['Fail-safe design', 'ออกแบบให้ธุรกิจเดินต่อได้ แม้เกิดเหตุขัดข้องหรือไฟดับบางช่วง'],
+  ['Remote management', 'ตรวจสุขภาพ อัปเดต และดูแลอุปกรณ์จากระยะไกลได้ง่ายขึ้น'],
+];
+
+const workflow = [
+  ['1', 'Monitor', 'เฝ้าระวังทราฟฟิกและอุปกรณ์สำคัญ'],
+  ['2', 'Detect', 'พบสัญญาณผิดปกติและจัดลำดับความเสี่ยง'],
+  ['3', 'Explain', 'AI สรุปเหตุการณ์เป็นภาษาไทยที่อ่านง่าย'],
+  ['4', 'Recommend', 'เสนอทางเลือกพร้อมผลกระทบทางธุรกิจ'],
+  ['5', 'Approve', 'เจ้าของหรือทีม IT กดยืนยันก่อนขั้นตอนสำคัญ'],
+  ['6', 'Respond', 'ดำเนินการ แจ้งผล และเก็บ Audit Log'],
+];
+
+const reasons = [
+  {
+    title: 'Built for Thai context',
+    thai: 'เพื่อธุรกิจไทย',
+    body: 'ออกแบบจากบริบท SME ไทย ทั้งภาษา ช่องทางแจ้งเตือน งบประมาณ และทีม IT ที่มักมีคนจำกัด',
+  },
+  {
+    title: 'Hardware + AI in one stack',
+    thai: 'เห็นเครือข่ายจริง วิเคราะห์ได้ทัน',
+    body: 'Edge Pro เก็บสัญญาณใกล้หน้างาน ส่วน Platform ช่วยวิเคราะห์ อธิบาย และแนะนำการตอบสนอง',
+  },
+  {
+    title: 'Control stays with people',
+    thai: 'AI ช่วย แต่ไม่แย่งตัดสินใจ',
+    body: 'เหมาะกับเจ้าของกิจการและทีมเล็กที่อยากได้ความเร็วของ AI โดยยังมีมนุษย์อนุมัติก่อนจุดสำคัญ',
+  },
+];
+
+const benefits = [
+  ['Early warning', 'เห็นความผิดปกติเร็วขึ้น ลดเวลาที่ภัยแฝงตัวในระบบ'],
+  ['Thai-first clarity', 'คำอธิบายอ่านง่ายสำหรับเจ้าของธุรกิจและทีม IT ขนาดเล็ก'],
+  ['Actionable response', 'มีขั้นตอนถัดไปชัดเจน ไม่ใช่แค่กอง Alert ให้ไล่เปิดเอง'],
+  ['Audit-ready', 'เก็บเหตุการณ์ การตัดสินใจ และผลลัพธ์ไว้ตรวจสอบย้อนหลัง'],
+  ['Human approval', 'งานสำคัญต้องผ่านการอนุมัติ ไม่ให้ AI ลงมือเกินขอบเขต'],
+];
+
+const footerGroups = [
+  {
+    heading: 'Platform',
+    links: [
+      ['Overview', '#platform'],
+      ['How it works', '#how-it-works'],
+      ['Why K9', '#why-k9'],
+    ],
+  },
+  {
+    heading: 'Edge Device',
+    links: [
+      ['K9 Edge Pro', '#edge-device'],
+      ['Thai SMEs', '#thai-smes'],
+      ['Request Demo', '#demo'],
+    ],
+  },
+  {
+    heading: 'Company',
+    links: [
+      ['Contact', '#demo'],
+      ['Privacy', '#demo'],
+    ],
+  },
+];
+
+function Logo() {
+  return (
+    <div className="logo-lockup flex items-center gap-3">
+      <div className="logo-shield" aria-hidden="true">
+        <span>K9</span>
+      </div>
+      <div className="logo-copy leading-tight">
+        <div className="text-lg font-black text-white">
+          BANGKAEW <span className="text-amber">K9</span>
+        </div>
+        <div className="text-[10px] uppercase text-slate-400">AI Cyber Watchdog for Thai SMEs</div>
+      </div>
+    </div>
+  );
+}
+
+function DashboardMock() {
+  return (
+    <div className="dashboard-mock" aria-label="Bangkaew K9 platform dashboard mockup">
+      <div className="flex items-center justify-between border-b border-white/10 px-4 py-3">
+        <div className="text-sm font-bold text-white">
+          BANGKAEW K9 <span className="text-royal">PLATFORM</span>
+        </div>
+        <div className="flex gap-1">
+          <span className="h-2 w-2 rounded-full bg-slate-600" />
+          <span className="h-2 w-2 rounded-full bg-slate-600" />
+          <span className="h-2 w-2 rounded-full bg-slate-600" />
+        </div>
+      </div>
+      <div className="grid grid-cols-3 gap-3 p-4">
+        <div className="metric col-span-1">
+          <span>สถานะ</span>
+          <strong>ปกติ</strong>
+        </div>
+        <div className="metric">
+          <span>แจ้งเตือน</span>
+          <strong>12</strong>
+        </div>
+        <div className="metric">
+          <span>อุปกรณ์</span>
+          <strong>48</strong>
+        </div>
+        <div className="chart col-span-2">
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
+          <i />
+        </div>
+        <div className="donut" />
+      </div>
+    </div>
+  );
+}
+
+export default function Home() {
+  return (
+    <main className="min-h-screen overflow-hidden bg-ink text-slate-200">
+      <div className="hero-bg" />
+      <header className="sticky top-0 z-50 border-b border-white/10 bg-ink/75 backdrop-blur-xl">
+        <nav className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-5 lg:px-8">
+          <Logo />
+          <div className="hidden items-center gap-5 text-sm font-medium text-slate-300 lg:flex">
+            {navItems.map((item) => (
+              <a className="nav-link" href={item.href} key={item.label}>
+                {item.label}
+              </a>
+            ))}
+          </div>
+          <a className="btn-primary px-4 py-2 text-sm sm:px-5" href="#demo">
+            Demo
+          </a>
+        </nav>
+      </header>
+
+      <section className="relative mx-auto grid max-w-7xl items-center gap-12 px-4 pb-16 pt-12 sm:px-5 lg:grid-cols-[0.86fr_1.14fr] lg:px-8 lg:pb-28 lg:pt-24">
+        <div>
+          <div className="eyebrow">AI Cybersecurity Platform + Edge Appliance</div>
+          <h1 className="mt-5 text-5xl font-black leading-[0.98] text-white md:text-7xl">
+            Your AI Cyber
+            <br />
+            <span className="text-gradient">Watchdog.</span>
+          </h1>
+          <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
+            Bangkaew K9 combines an AI security platform with a commercial edge appliance built for Thai SMEs.
+          </p>
+          <div className="tagline mt-7">ดมไว เห่าทัน เฝ้าบ้านอย่างใส่ใจ</div>
+          <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
+            ตรวจจับเร็ว อธิบายชัด แนะนำการรับมือ และรอให้เจ้าของหรือทีม IT อนุมัติก่อนตอบสนองกับระบบสำคัญ
+          </p>
+          <div className="mt-8 flex flex-col gap-3 sm:flex-row">
+            <a className="btn-primary px-6 py-3" href="#demo">
+              Request Demo
+            </a>
+            <a className="btn-secondary px-6 py-3" href="#edge-device">
+              See the Device
+            </a>
+          </div>
+          <div className="mt-8 grid grid-cols-2 gap-3 text-xs text-slate-400 md:grid-cols-4">
+            {['Early threat detection', 'Thai-first explanations', 'Human approval gate', 'Edge visibility on-site'].map((item) => (
+              <div className="trust-badge" key={item}>
+                {item}
+              </div>
+            ))}
+          </div>
+        </div>
+
+        <div className="hero-visual">
+          <div className="product-frame">
+            <Image
+              src="/k9-edge-pro-hero.png"
+              alt="Bangkaew K9 Edge Pro cybersecurity appliance"
+              width={1792}
+              height={1024}
+              className="hero-product-image"
+              sizes="(min-width: 1024px) 58vw, 100vw"
+              style={{ width: '100%', height: 'auto' }}
+              priority
+            />
+          </div>
+          <DashboardMock />
+          <div className="hero-signal hero-signal-a">AI explained</div>
+          <div className="hero-signal hero-signal-b">Approval required</div>
+        </div>
+      </section>
+
+      <section id="platform" className="section">
+        <div className="section-heading">
+          <p>The Cyber Watchdog Platform</p>
+          <h2>เห็นภัยก่อน เข้าใจเร็ว ตัดสินใจได้มั่นใจ</h2>
+        </div>
+        <div className="grid gap-5 md:grid-cols-2 lg:grid-cols-4">
+          {platformCards.map((card) => (
+            <article className="feature-card" key={card.title}>
+              <div className="feature-icon">{card.icon}</div>
+              <h3>{card.title}</h3>
+              <strong>{card.thai}</strong>
+              <p>{card.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="edge-device" className="section grid items-center gap-10 lg:grid-cols-[1.02fr_0.98fr]">
+        <div className="edge-product-panel">
+          <Image
+            src="/k9-edge-pro-hero.png"
+            alt="K9 Edge Pro network security hardware"
+            width={1792}
+            height={1024}
+            className="edge-product-image"
+            sizes="(min-width: 1024px) 52vw, 100vw"
+            style={{ width: '100%', height: 'auto' }}
+            priority
+          />
+        </div>
+        <div>
+          <p className="eyebrow">Commercial Edge Appliance</p>
+          <h2 className="mt-4 text-4xl font-black leading-tight text-white">Meet Bangkaew K9 Edge Pro</h2>
+          <p className="mt-4 leading-8 text-slate-300">
+            อุปกรณ์เฝ้าระวังหน้าไซต์สำหรับร้านค้า โรงงาน ออฟฟิศ และหลายสาขา ติดตั้งเพื่อมองเห็นเครือข่ายจริง
+            แล้วส่งเหตุการณ์สำคัญให้ Bangkaew K9 Platform วิเคราะห์ต่อทันที
+          </p>
+          <div className="mt-8 grid gap-4 sm:grid-cols-2">
+            {edgeFeatures.map(([title, body]) => (
+              <div className="mini-card" key={title}>
+                <div className="mini-dot" />
+                <div>
+                  <h3>{title}</h3>
+                  <p>{body}</p>
+                </div>
+              </div>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section id="how-it-works" className="section">
+        <div className="section-heading">
+          <p>How Bangkaew K9 Works</p>
+          <h2>AI ช่วยคิด แต่เจ้าของยังเป็นผู้ตัดสินใจ</h2>
+        </div>
+        <div className="workflow">
+          {workflow.map(([num, title, thai], index) => (
+            <div className="workflow-item" key={title}>
+              <span>{num}</span>
+              <strong>{title}</strong>
+              <p>{thai}</p>
+              {index < workflow.length - 1 && <b aria-hidden="true">→</b>}
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="thai-smes" className="section">
+        <div className="section-heading">
+          <p>Built for Thai SMEs</p>
+          <h2>ออกแบบให้ทีมเล็กเห็นภาพเร็ว และตัดสินใจได้จริง</h2>
+        </div>
+        <div className="grid gap-5 md:grid-cols-3">
+          {reasons.map((reason) => (
+            <article className="reason-card" key={reason.title}>
+              <div className="reason-mark">◆</div>
+              <h3>{reason.title}</h3>
+              <strong>{reason.thai}</strong>
+              <p>{reason.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="why-k9" className="section">
+        <div className="section-heading">
+          <p>Why Bangkaew K9</p>
+          <h2>Trust-first cybersecurity สำหรับธุรกิจไทยที่ต้องเดินต่อทุกวัน</h2>
+        </div>
+        <div className="benefit-row">
+          {benefits.map(([title, body]) => (
+            <div className="benefit" key={title}>
+              <span>✓</span>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </div>
+          ))}
+        </div>
+      </section>
+
+      <section id="demo" className="mx-auto max-w-7xl px-4 pb-16 sm:px-5 lg:px-8">
+        <div className="cta-panel">
+          <div>
+            <p className="eyebrow">Your AI Cyber Watchdog for Thai SMEs</p>
+            <h2>เริ่มจากการมองเห็น ก่อนปล่อยให้ภัยลุกลาม</h2>
+            <p>
+              เสียบ Edge Pro เข้ากับเครือข่าย เห็นเหตุสำคัญเร็วขึ้น ให้ AI ช่วยอธิบาย
+              และให้คนตัดสินใจก่อนลงมือ
+            </p>
+          </div>
+          <a className="btn-primary px-7 py-4" href="mailto:hello@bangkaew-k9.example">
+            Request Demo
+          </a>
+        </div>
+      </section>
+
+      <footer className="border-t border-white/10 bg-black/30 px-4 py-12 sm:px-5 lg:px-8">
+        <div className="mx-auto grid max-w-7xl gap-10 md:grid-cols-[1.4fr_1fr_1fr_1fr]">
+          <div>
+            <Logo />
+            <p className="mt-5 max-w-sm text-sm leading-7 text-slate-400">
+              Bangkaew K9 = Edge Hardware + AI Platform + Human-in-the-Loop สำหรับ SME ไทย
+            </p>
+          </div>
+          {footerGroups.map((group) => (
+            <div key={group.heading}>
+              <h3 className="font-bold text-white">{group.heading}</h3>
+              <ul className="mt-4 space-y-2 text-sm text-slate-400">
+                {group.links.map(([label, href]) => (
+                  <li key={label}>
+                    <a className="nav-link" href={href}>
+                      {label}
+                    </a>
+                  </li>
+                ))}
+              </ul>
+            </div>
+          ))}
+        </div>
+      </footer>
+    </main>
+  );
+}
