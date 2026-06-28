@@ -12,71 +12,92 @@ const platformCards = [
   {
     title: 'Detect early',
     thai: 'เห็นภัยก่อน',
-    body: 'ตรวจจับสัญญาณผิดปกติจากเครือข่ายและอุปกรณ์ Edge ก่อนลุกลามเป็นเหตุใหญ่',
+    body: 'ตรวจจับสัญญาณผิดปกติจากเครือข่ายและอุปกรณ์ Edge ก่อนลุกลามเป็นเหตุใหญ่ ลดเวลาที่ทีมต้องไล่หาต้นตอเอง',
     icon: '◎',
   },
   {
     title: 'Explain clearly',
     thai: 'เข้าใจเร็ว',
-    body: 'แปล Alert และ Incident เป็นภาษาไทย พร้อมบริบท ผลกระทบ และหลักฐานที่ทีมเล็กอ่านรู้เรื่อง',
+    body: 'แปล Alert และ Incident เป็นภาษาไทย พร้อมบริบท ผลกระทบ และหลักฐาน ช่วยให้เจ้าของกับทีม IT ตัดสินใจตรงกันเร็วขึ้น',
     icon: '✦',
   },
   {
     title: 'Recommend actions',
     thai: 'มีทางเลือกชัดเจน',
-    body: 'เสนอขั้นตอนรับมือที่ทำได้จริง พร้อมระดับความเสี่ยงและผลกระทบก่อนกดอนุมัติ',
+    body: 'เสนอขั้นตอนรับมือที่ทำได้จริง พร้อมระดับความเสี่ยงและผลกระทบ ลดการลองผิดลองถูกในช่วงเวลาที่กดดัน',
     icon: '☼',
   },
   {
     title: 'Wait for approval',
     thai: 'เจ้าของคุมเกม',
-    body: 'Human-in-the-Loop ก่อนตอบสนองกับระบบสำคัญ เพื่อให้ธุรกิจยังตัดสินใจเองเสมอ',
+    body: 'Human-in-the-Loop ก่อนตอบสนองกับระบบสำคัญ ลดความเสี่ยงจาก automation ที่อาจกระทบงานขาย บัญชี หรือระบบหน้าร้าน',
     icon: '✓',
   },
 ];
 
 const edgeFeatures = [
-  ['Multi-LAN ready', 'รองรับ Monitor Mode และ Inline Mode สำหรับหลายสาขา'],
-  ['DNS & URL Guard', 'ช่วยกรองโดเมน เว็บ และปลายทางที่เสี่ยงก่อนเข้าถึง'],
-  ['AI-assisted analysis', 'ส่งสัญญาณสำคัญให้ Platform วิเคราะห์และสรุปเป็นภาษาไทย'],
-  ['LINE / Email alerts', 'แจ้งเตือนเหตุสำคัญให้เจ้าของและทีม IT โดยไม่ต้องเปิด Dashboard ตลอดเวลา'],
-  ['Fail-safe design', 'ออกแบบให้ธุรกิจเดินต่อได้ แม้เกิดเหตุขัดข้องหรือไฟดับบางช่วง'],
-  ['Remote management', 'ตรวจสุขภาพ อัปเดต และดูแลอุปกรณ์จากระยะไกลได้ง่ายขึ้น'],
+  ['Multi-LAN ready', 'รองรับ Monitor Mode และ Inline Mode สำหรับหลายสาขา ช่วยให้เห็นภาพเครือข่ายโดยไม่ต้องเพิ่มคนเฝ้าไซต์'],
+  ['DNS & URL Guard', 'ช่วยกรองโดเมน เว็บ และปลายทางที่เสี่ยงก่อนเข้าถึง ลดโอกาสพนักงานพลาดคลิกลิงก์อันตราย'],
+  ['AI-assisted analysis', 'ส่งสัญญาณสำคัญให้ Platform วิเคราะห์และสรุปเป็นภาษาไทย ลดงานแปล log และจัดลำดับ alert ด้วยมือ'],
+  ['LINE / Email alerts', 'แจ้งเตือนเหตุสำคัญให้เจ้าของและทีม IT ทันที เพื่อรับมือเร็วโดยไม่ต้องเปิด Dashboard ตลอดเวลา'],
+  ['Fail-safe design', 'ออกแบบให้ธุรกิจเดินต่อได้ แม้เกิดเหตุขัดข้อง ลดความเสี่ยง downtime ที่กระทบยอดขายหรือบริการ'],
+  ['Remote management', 'ตรวจสุขภาพ อัปเดต และดูแลอุปกรณ์จากระยะไกล ลดรอบการเดินทางและเวลาปิดหน้าร้านเพื่อแก้ปัญหา'],
 ];
 
 const workflow = [
-  ['1', 'Monitor', 'เฝ้าระวังทราฟฟิกและอุปกรณ์สำคัญ'],
-  ['2', 'Detect', 'พบสัญญาณผิดปกติและจัดลำดับความเสี่ยง'],
-  ['3', 'Explain', 'AI สรุปเหตุการณ์เป็นภาษาไทยที่อ่านง่าย'],
-  ['4', 'Recommend', 'เสนอทางเลือกพร้อมผลกระทบทางธุรกิจ'],
-  ['5', 'Approve', 'เจ้าของหรือทีม IT กดยืนยันก่อนขั้นตอนสำคัญ'],
-  ['6', 'Respond', 'ดำเนินการ แจ้งผล และเก็บ Audit Log'],
+  ['1', 'Monitor', 'เฝ้าระวังทราฟฟิกและอุปกรณ์สำคัญแบบต่อเนื่อง'],
+  ['2', 'Detect', 'พบสัญญาณผิดปกติและจัดลำดับความเสี่ยงอัตโนมัติ'],
+  ['3', 'Explain', 'AI สรุปเหตุการณ์เป็นภาษาไทย ลดเวลาถามตอบในทีม'],
+  ['4', 'Recommend', 'เสนอทางเลือกพร้อมผลกระทบต่อการทำงานจริง'],
+  ['5', 'Approve', 'เจ้าของหรือทีม IT กดยืนยันก่อนขั้นตอนที่มีความเสี่ยง'],
+  ['6', 'Respond', 'ดำเนินการ แจ้งผล และเก็บ Audit Log เพื่อทบทวนย้อนหลัง'],
 ];
 
 const reasons = [
   {
     title: 'Built for Thai context',
     thai: 'เพื่อธุรกิจไทย',
-    body: 'ออกแบบจากบริบท SME ไทย ทั้งภาษา ช่องทางแจ้งเตือน งบประมาณ และทีม IT ที่มักมีคนจำกัด',
+    body: 'ออกแบบจากบริบท SME ไทย ทั้งภาษา ช่องทางแจ้งเตือน งบประมาณ และทีม IT ที่มักมีคนจำกัด จึงช่วยลดงานประจำวันโดยไม่เพิ่มความซับซ้อน',
   },
   {
     title: 'Hardware + AI in one stack',
     thai: 'เห็นเครือข่ายจริง วิเคราะห์ได้ทัน',
-    body: 'Edge Pro เก็บสัญญาณใกล้หน้างาน ส่วน Platform ช่วยวิเคราะห์ อธิบาย และแนะนำการตอบสนอง',
+    body: 'Edge Pro เก็บสัญญาณใกล้หน้างาน ส่วน Platform ช่วยวิเคราะห์ อธิบาย และแนะนำการตอบสนอง ทำให้ทีมรู้ว่าควรโฟกัสจุดไหนก่อน',
   },
   {
     title: 'Control stays with people',
     thai: 'AI ช่วย แต่ไม่แย่งตัดสินใจ',
-    body: 'เหมาะกับเจ้าของกิจการและทีมเล็กที่อยากได้ความเร็วของ AI โดยยังมีมนุษย์อนุมัติก่อนจุดสำคัญ',
+    body: 'เหมาะกับเจ้าของกิจการและทีมเล็กที่อยากได้ความเร็วของ AI โดยยังมีมนุษย์อนุมัติก่อนจุดสำคัญ ลดความเสี่ยงจากการตอบสนองเกินจำเป็น',
   },
 ];
 
 const benefits = [
-  ['Early warning', 'เห็นความผิดปกติเร็วขึ้น ลดเวลาที่ภัยแฝงตัวในระบบ'],
-  ['Thai-first clarity', 'คำอธิบายอ่านง่ายสำหรับเจ้าของธุรกิจและทีม IT ขนาดเล็ก'],
-  ['Actionable response', 'มีขั้นตอนถัดไปชัดเจน ไม่ใช่แค่กอง Alert ให้ไล่เปิดเอง'],
-  ['Audit-ready', 'เก็บเหตุการณ์ การตัดสินใจ และผลลัพธ์ไว้ตรวจสอบย้อนหลัง'],
-  ['Human approval', 'งานสำคัญต้องผ่านการอนุมัติ ไม่ให้ AI ลงมือเกินขอบเขต'],
+  ['Less alert chasing', 'ลดเวลาคัดกรอง alert ซ้ำ ๆ แล้วให้ทีมโฟกัสเหตุที่กระทบธุรกิจจริง'],
+  ['Faster decision loops', 'สรุปเหตุการณ์เป็นภาษาไทย ช่วยให้เจ้าของและทีม IT ตัดสินใจในบริบทเดียวกัน'],
+  ['Lower downtime risk', 'แนะนำทางเลือกที่คำนึงถึงผลกระทบต่อระบบขาย บัญชี และงานหน้าร้าน'],
+  ['Audit-ready evidence', 'เก็บเหตุการณ์ การตัดสินใจ และผลลัพธ์ไว้ตรวจสอบย้อนหลังหรือตอบลูกค้าองค์กร'],
+  ['Human approval gate', 'งานสำคัญต้องผ่านการอนุมัติ ลดโอกาสที่ระบบอัตโนมัติจะกระทบงานหลักโดยไม่ตั้งใจ'],
+];
+
+const outcomeDetails = [
+  {
+    label: 'Productivity',
+    title: 'ให้ทีมเล็กทำงานเหมือนมี SOC เบื้องต้น',
+    points: [
+      'รวมสัญญาณจาก Edge, DNS, endpoint และเหตุการณ์เครือข่ายไว้ในมุมมองเดียว',
+      'จัดลำดับ alert ตามผลกระทบ เพื่อให้เริ่มจากเรื่องที่เสี่ยงต่อรายได้หรือการให้บริการก่อน',
+      'สรุปเหตุการณ์เป็นภาษาไทยพร้อม next step ลดเวลาประชุม อธิบาย และ handoff ระหว่างเจ้าของกับทีม IT',
+    ],
+  },
+  {
+    label: 'Risk reduction',
+    title: 'ลดความเสี่ยงโดยไม่หยุดธุรกิจเกินจำเป็น',
+    points: [
+      'ช่วยเห็นสัญญาณ ransomware, phishing, DNS เสี่ยง และการเชื่อมต่อผิดปกติก่อนกระทบวงกว้าง',
+      'แนะนำระดับการตอบสนองแบบเป็นขั้น ไม่เริ่มจากการปิดระบบทันทีถ้ายังมีทางเลือกที่ปลอดภัยกว่า',
+      'เก็บ Audit Log ของเหตุการณ์ เหตุผล และการอนุมัติ เพื่อใช้ทบทวนหรือปรับ policy ในอนาคต',
+    ],
+  },
 ];
 
 const footerGroups = [
@@ -191,11 +212,13 @@ export default function Home() {
             <span className="text-gradient">Watchdog.</span>
           </h1>
           <p className="mt-6 max-w-xl text-lg leading-8 text-slate-300">
-            Bangkaew K9 combines an AI security platform with a commercial edge appliance built for Thai SMEs.
+            Bangkaew K9 combines an AI security platform with a commercial edge appliance built to help Thai SMEs
+            work faster, reduce alert fatigue, and lower operational cyber risk.
           </p>
           <div className="tagline mt-7">ดมไว เห่าทัน เฝ้าบ้านอย่างใส่ใจ</div>
           <p className="mt-5 max-w-xl text-base leading-8 text-slate-300">
             ตรวจจับเร็ว อธิบายชัด แนะนำการรับมือ และรอให้เจ้าของหรือทีม IT อนุมัติก่อนตอบสนองกับระบบสำคัญ
+            เพื่อให้ทีมเล็กทำงานเร็วขึ้นโดยไม่เพิ่มความเสี่ยงให้ธุรกิจ
           </p>
           <div className="mt-8 flex flex-col gap-3 sm:flex-row">
             <a className="btn-primary px-6 py-3" href="#demo">
@@ -206,7 +229,7 @@ export default function Home() {
             </a>
           </div>
           <div className="mt-8 grid grid-cols-2 gap-3 text-xs text-slate-400 md:grid-cols-4">
-            {['Early threat detection', 'Thai-first explanations', 'Human approval gate', 'Edge visibility on-site'].map((item) => (
+            {['Reduce manual triage', 'Lower downtime risk', 'Thai-first decisions', 'Approval before action'].map((item) => (
               <div className="trust-badge" key={item}>
                 {item}
               </div>
@@ -304,7 +327,7 @@ export default function Home() {
       <section id="thai-smes" className="section">
         <div className="section-heading">
           <p>Built for Thai SMEs</p>
-          <h2>ออกแบบให้ทีมเล็กเห็นภาพเร็ว และตัดสินใจได้จริง</h2>
+          <h2>ออกแบบให้ทีมเล็กทำงานเร็วขึ้น และลดความเสี่ยงที่กระทบรายได้</h2>
         </div>
         <div className="grid gap-5 md:grid-cols-3">
           {reasons.map((reason) => (
@@ -321,7 +344,7 @@ export default function Home() {
       <section id="why-k9" className="section">
         <div className="section-heading">
           <p>Why Bangkaew K9</p>
-          <h2>Trust-first cybersecurity สำหรับธุรกิจไทยที่ต้องเดินต่อทุกวัน</h2>
+          <h2>Trust-first cybersecurity ที่เพิ่ม productivity โดยไม่ปล่อยให้ความเสี่ยงหลุดมือ</h2>
         </div>
         <div className="benefit-row">
           {benefits.map(([title, body]) => (
@@ -332,16 +355,29 @@ export default function Home() {
             </div>
           ))}
         </div>
+        <div className="outcome-grid mt-5">
+          {outcomeDetails.map((detail) => (
+            <article className="outcome-panel" key={detail.label}>
+              <p>{detail.label}</p>
+              <h3>{detail.title}</h3>
+              <ul>
+                {detail.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
       </section>
 
       <section id="demo" className="mx-auto max-w-7xl px-4 pb-16 sm:px-5 lg:px-8">
         <div className="cta-panel">
           <div>
             <p className="eyebrow">Your AI Cyber Watchdog for Thai SMEs</p>
-            <h2>เริ่มจากการมองเห็น ก่อนปล่อยให้ภัยลุกลาม</h2>
+            <h2>เริ่มจากการมองเห็น ลดงานซ้ำ และลดความเสี่ยงก่อนภัยลุกลาม</h2>
             <p>
               เสียบ Edge Pro เข้ากับเครือข่าย เห็นเหตุสำคัญเร็วขึ้น ให้ AI ช่วยอธิบาย
-              และให้คนตัดสินใจก่อนลงมือ
+              แนะนำลำดับการรับมือ และให้คนตัดสินใจก่อนลงมือกับระบบสำคัญ
             </p>
           </div>
           <a className="btn-primary px-7 py-4" href="mailto:hello@bangkaew-k9.example">
