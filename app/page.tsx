@@ -1,4 +1,5 @@
 import Image from 'next/image';
+import RiskAssessment from './RiskAssessment';
 
 const navItems = [
   { label: 'Platform', href: '#platform' },
@@ -329,26 +330,7 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="risk-assessment" className="section risk-section">
-        <div className="risk-copy">
-          <p className="eyebrow">Free Cyber Risk Assessment</p>
-          <h2>รู้ระดับความเสี่ยงก่อนลงทุน แล้วค่อยเลือกทางรับมือที่เหมาะกับองค์กร</h2>
-          <p>
-            เริ่มจากแบบประเมินความเสี่ยงฟรีเพื่อสร้าง awareness ให้เจ้าของธุรกิจ เห็นจุดอ่อนเบื้องต้น และใช้ผลประเมินเป็นทางเข้าสู่ demo หรือ pilot ที่เหมาะกับระดับความเสี่ยง
-          </p>
-          <a className="btn btn-primary btn-large" href="#demo">
-            ขอ Demo สำหรับ Assessment
-          </a>
-        </div>
-        <div className="assessment-steps" aria-label="Free cyber risk assessment flow">
-          {['ตอบคำถาม 3 นาที', 'รับระดับความเสี่ยง', 'เห็น pain point สำคัญ', 'แนะนำ package ที่เหมาะสม'].map((step, index) => (
-            <div key={step}>
-              <span>{String(index + 1).padStart(2, '0')}</span>
-              <strong>{step}</strong>
-            </div>
-          ))}
-        </div>
-      </section>
+      <RiskAssessment />
 
       <section className="section package-section" aria-labelledby="package-path-heading">
         <div className="section-heading section-heading-wide">

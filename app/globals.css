@@ -403,7 +403,7 @@ section[id] {
 }
 
 .section-heading h2,
-.risk-copy h2,
+.assessment-copy h2,
 .edge-copy h2,
 .cta-panel h2 {
   margin: 0;
@@ -439,7 +439,8 @@ section[id] {
 .workflow-card,
 .package-card,
 .edge-feature-grid article,
-.assessment-steps div {
+.assessment-option,
+.assessment-result {
   border: 1px solid rgba(255, 255, 255, 0.1);
   border-radius: 8px;
   background: linear-gradient(180deg, rgba(255, 255, 255, 0.062), rgba(255, 255, 255, 0.025));
@@ -460,7 +461,9 @@ section[id] {
 .sme-card span,
 .why-card span,
 .package-card span,
-.assessment-steps span {
+.assessment-note span,
+.assessment-result-top span,
+.recommended-path span {
   display: inline-flex;
   min-height: 28px;
   align-items: center;
@@ -495,7 +498,8 @@ section[id] {
 .package-card p,
 .edge-feature-grid p,
 .edge-copy p,
-.risk-copy p,
+.assessment-copy p,
+.assessment-result p,
 .cta-panel p,
 .site-footer p {
   color: #a9bad3;
@@ -557,7 +561,7 @@ section[id] {
 }
 
 .edge-copy h2,
-.risk-copy h2 {
+.assessment-copy h2 {
   margin: 0.76rem 0 1rem;
   font-size: clamp(2rem, 4.4vw, 4.1rem);
   line-height: 1.05;
@@ -610,15 +614,14 @@ section[id] {
   font-size: 0.88rem;
 }
 
-.risk-section {
+.assessment-section {
   display: grid;
-  grid-template-columns: minmax(0, 1fr) minmax(300px, 0.68fr);
-  align-items: center;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  align-items: stretch;
   gap: 1rem;
 }
 
-.risk-copy {
-  min-height: 430px;
+.assessment-copy {
   border: 1px solid rgba(125, 211, 252, 0.22);
   border-radius: 8px;
   background:
@@ -628,30 +631,198 @@ section[id] {
   padding: clamp(1.5rem, 4vw, 3rem);
 }
 
-.risk-copy p {
+.assessment-copy p {
   max-width: 800px;
 }
 
-.risk-copy .btn {
-  margin-top: 1.35rem;
+.assessment-note {
+  margin-top: 1.3rem;
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  border-radius: 8px;
+  background: rgba(2, 7, 17, 0.42);
+  padding: 1rem;
 }
 
-.assessment-steps {
+.assessment-note strong {
+  display: block;
+  margin-top: 0.7rem;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 700;
+  line-height: 1.6;
+}
+
+.assessment-tool {
+  display: grid;
+  grid-template-columns: minmax(0, 1.08fr) minmax(280px, 0.92fr);
+  gap: 1rem;
+}
+
+.assessment-checklist {
   display: grid;
   gap: 0.75rem;
 }
 
-.assessment-steps div {
-  min-height: 96px;
-  padding: 1rem;
+.assessment-option {
+  display: grid;
+  grid-template-columns: 34px minmax(0, 1fr);
+  min-height: 84px;
+  align-items: center;
+  gap: 0.85rem;
+  padding: 0.95rem;
+  color: inherit;
+  text-align: left;
+  transition: border-color 170ms ease, background-color 170ms ease, box-shadow 170ms ease, transform 170ms ease;
 }
 
-.assessment-steps strong {
-  display: block;
-  margin-top: 0.68rem;
+.assessment-option:hover {
+  border-color: rgba(23, 199, 230, 0.32);
+  background: rgba(255, 255, 255, 0.055);
+  transform: translateY(-1px);
+}
+
+.assessment-option span {
+  display: grid;
+  width: 34px;
+  height: 34px;
+  place-items: center;
+  border: 1px solid rgba(255, 255, 255, 0.14);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.045);
+  color: #9fc3df;
+  font-weight: 900;
+}
+
+.assessment-option strong {
   color: #ffffff;
-  font-size: 1.05rem;
-  line-height: 1.35;
+  font-size: 0.98rem;
+  font-weight: 700;
+  line-height: 1.55;
+}
+
+.assessment-option.is-selected {
+  border-color: rgba(23, 199, 230, 0.42);
+  background: linear-gradient(135deg, rgba(47, 125, 246, 0.18), rgba(22, 214, 165, 0.08));
+  box-shadow: 0 0 34px rgba(23, 199, 230, 0.12);
+}
+
+.assessment-option.is-selected span {
+  border-color: rgba(125, 211, 252, 0.45);
+  background: linear-gradient(135deg, #2f7df6, #17c7e6);
+  color: #ffffff;
+}
+
+.assessment-result {
+  position: sticky;
+  top: 104px;
+  align-self: start;
+  min-height: 100%;
+  padding: 1.2rem;
+  background:
+    radial-gradient(circle at 82% 6%, rgba(23, 199, 230, 0.18), transparent 18rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.075), rgba(255, 255, 255, 0.03));
+}
+
+.assessment-result-top {
+  display: flex;
+  align-items: end;
+  justify-content: space-between;
+  gap: 1rem;
+}
+
+.assessment-result-top strong {
+  color: #ffffff;
+  font-size: clamp(2.1rem, 4vw, 3.4rem);
+  font-weight: 900;
+  line-height: 0.95;
+}
+
+.risk-meter {
+  height: 12px;
+  margin-top: 1rem;
+  overflow: hidden;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 999px;
+  background: rgba(255, 255, 255, 0.06);
+}
+
+.risk-meter i {
+  display: block;
+  height: 100%;
+  border-radius: inherit;
+  background: linear-gradient(90deg, #16d6a5, #17c7e6, #ffcf7a);
+  transition: width 220ms ease;
+}
+
+.assessment-result p {
+  margin-top: 1rem;
+}
+
+.recommended-path {
+  margin-top: 1rem;
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  padding: 0.95rem;
+}
+
+.recommended-path strong {
+  display: block;
+  margin-top: 0.55rem;
+  color: #ffffff;
+  font-size: 1.2rem;
+  font-weight: 850;
+  line-height: 1.3;
+}
+
+.assessment-result ul {
+  display: grid;
+  gap: 0.55rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.assessment-result li {
+  display: flex;
+  gap: 0.55rem;
+  color: #c7d7ed;
+  font-size: 0.93rem;
+  line-height: 1.55;
+}
+
+.assessment-result li::before {
+  content: "";
+  width: 7px;
+  height: 7px;
+  flex: 0 0 auto;
+  margin-top: 0.52rem;
+  border-radius: 999px;
+  background: #17c7e6;
+  box-shadow: 0 0 12px rgba(23, 199, 230, 0.7);
+}
+
+.assessment-actions {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.75rem;
+  margin-top: 1.15rem;
+}
+
+.assessment-low .assessment-result-top strong {
+  color: #8beaff;
+}
+
+.assessment-medium .assessment-result-top strong {
+  color: #16d6a5;
+}
+
+.assessment-high .assessment-result-top strong {
+  color: #ffcf7a;
+}
+
+.assessment-critical .assessment-result-top strong {
+  color: #ff8c8c;
 }
 
 .package-section .section-heading {
@@ -757,7 +928,8 @@ section[id] {
   .impact-grid,
   .edge-section,
   .sme-grid,
-  .risk-section {
+  .assessment-section,
+  .assessment-tool {
     grid-template-columns: 1fr;
   }
 
@@ -765,8 +937,8 @@ section[id] {
     min-height: 390px;
   }
 
-  .risk-copy {
-    min-height: auto;
+  .assessment-result {
+    position: static;
   }
 }
 
@@ -811,7 +983,8 @@ section[id] {
   .why-grid,
   .workflow-grid,
   .edge-feature-grid,
-  .package-list {
+  .package-list,
+  .assessment-tool {
     grid-template-columns: 1fr;
   }
 
@@ -845,15 +1018,26 @@ section[id] {
   .sme-card,
   .why-card,
   .workflow-card,
-  .package-card {
+  .package-card,
+  .assessment-option {
     min-height: auto;
   }
 
   .section-heading h2,
   .edge-copy h2,
-  .risk-copy h2,
+  .assessment-copy h2,
   .cta-panel h2 {
     line-height: 1.08;
+  }
+
+  .assessment-option {
+    grid-template-columns: 30px minmax(0, 1fr);
+    padding: 0.85rem;
+  }
+
+  .assessment-option span {
+    width: 30px;
+    height: 30px;
   }
 
   .footer-links {
