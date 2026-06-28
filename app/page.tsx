@@ -8,104 +8,126 @@ const navItems = [
   { label: 'Why K9', href: '#why-k9' },
 ];
 
-const heroStats = [
-  ['Human approval', 'before critical response'],
-  ['Thai explanation', 'for owners and IT teams'],
-  ['Edge + AI', 'visibility from the real network'],
+const heroPills = [
+  'Edge visibility',
+  'Thai AI explanation',
+  'Human approval',
+];
+
+const impactCards = [
+  {
+    label: 'External threats',
+    title: 'ภัยข้างนอกเร็วขึ้นและหลอกเก่งขึ้น',
+    body: 'Phishing, ransomware, malicious domain และ AI-generated social engineering ทำให้ SME กลายเป็นเป้าหมายง่ายขึ้นทุกวัน',
+  },
+  {
+    label: 'Internal limits',
+    title: 'ทีมข้างในเล็กเกินกว่าจะเฝ้าระบบตลอดเวลา',
+    body: 'เจ้าของและทีม IT ต้องดูแลยอดขาย ระบบบัญชี หน้าร้าน และ support พร้อมกัน จึงไม่มีเวลาคัดกรอง alert หรืออ่าน log ยาว ๆ',
+  },
+  {
+    label: 'Business impact',
+    title: 'ความเสี่ยงไซเบอร์กระทบรายได้โดยตรง',
+    body: 'Downtime, data leakage และการตอบสนองผิดจังหวะทำให้เสียยอดขาย เสียความเชื่อมั่น และอาจลามไปถึงคู่ค้าหรือ supply chain',
+  },
 ];
 
 const platformCards = [
   {
-    title: 'Detect early',
-    thai: 'เห็นภัยก่อนลุกลาม',
-    body: 'รวมสัญญาณจาก Edge, DNS, URL และพฤติกรรมเครือข่าย แล้วจัดลำดับเหตุที่เสี่ยงต่อรายได้ ระบบขาย หรือข้อมูลลูกค้าก่อน',
+    label: 'Detect early',
+    title: 'เห็นภัยก่อนลุกลาม',
+    body: 'รวมสัญญาณจาก Edge Pro, DNS, URL และพฤติกรรมเครือข่ายจริง แล้วจัดลำดับเหตุที่กระทบธุรกิจก่อน',
   },
   {
-    title: 'Explain clearly',
-    thai: 'แปลความเสี่ยงเป็นภาษาเจ้าของธุรกิจ',
-    body: 'AI สรุป incident เป็นภาษาไทย พร้อมบริบท ผลกระทบ และหลักฐานที่ทีม IT ใช้อธิบายกับผู้บริหารได้ทันที',
+    label: 'Explain clearly',
+    title: 'อธิบายเป็นภาษาไทยที่ตัดสินใจได้',
+    body: 'AI สรุปว่าเกิดอะไร เสี่ยงแค่ไหน กระทบระบบไหน และควรสนใจเพราะอะไร เพื่อให้เจ้าของกับทีม IT เข้าใจตรงกัน',
   },
   {
-    title: 'Recommend actions',
-    thai: 'แนะนำทางเลือกที่ไม่ทำให้ธุรกิจสะดุด',
-    body: 'เสนอขั้นตอนรับมือแบบเป็นระดับ ตั้งแต่เฝ้าดู แจ้งเตือน จำกัดความเสี่ยง ไปจนถึง action ที่ต้องอนุมัติก่อน',
+    label: 'Recommend actions',
+    title: 'แนะนำทางเลือกที่คำนึงถึง downtime',
+    body: 'เสนอ next step แบบเป็นระดับ ตั้งแต่เฝ้าดู แจ้งเตือน จำกัดความเสี่ยง ไปจนถึง action ที่ต้องขออนุมัติ',
   },
   {
-    title: 'Keep humans in control',
-    thai: 'AI ช่วยคิด คนยังเป็นผู้ตัดสินใจ',
-    body: 'Human-in-the-Loop สำหรับระบบสำคัญ ลดความเสี่ยงจาก automation ที่อาจกระทบงานหน้าร้าน บัญชี หรือบริการหลัก',
+    label: 'Human approval',
+    title: 'AI ช่วยคิด แต่คนยังคุมระบบสำคัญ',
+    body: 'Critical response ต้องผ่านเจ้าของหรือทีม IT ก่อน ลดความเสี่ยงจาก automation ที่อาจกระทบงานขาย บัญชี หรือบริการหลัก',
   },
 ];
 
 const edgeFeatures = [
-  ['Multi-LAN visibility', 'มองเห็นทราฟฟิกหลายจุดในไซต์เดียว เหมาะกับร้านค้า โรงงาน ออฟฟิศ และธุรกิจหลายสาขา'],
-  ['DNS & URL Guard', 'ช่วยลดความเสี่ยงจาก phishing, malicious domain และเว็บที่พนักงานอาจเผลอคลิก'],
-  ['AI signal pipeline', 'ส่งเหตุการณ์สำคัญขึ้น Platform เพื่อสรุป วิเคราะห์ และแนะนำการรับมือเป็นภาษาไทย'],
-  ['LINE / Email alert', 'แจ้งเตือนเหตุเร่งด่วนให้เจ้าของและทีม IT โดยไม่ต้องเปิด dashboard ตลอดเวลา'],
-  ['Remote management', 'ตรวจสุขภาพ อัปเดต policy และดูแล Edge Pro จากระยะไกล ลดรอบ onsite support'],
-  ['Fail-safe deployment', 'ออกแบบให้เริ่มจาก monitor ก่อน แล้วค่อยเพิ่ม response ตามความพร้อมของธุรกิจ'],
+  ['Network visibility', 'มองเห็นทราฟฟิกและเหตุการณ์หน้าไซต์จริง เหมาะกับร้านค้า โรงงาน ออฟฟิศ และหลายสาขา'],
+  ['DNS & URL Guard', 'ช่วยลดโอกาสพนักงานหลุดไปยัง phishing link, malicious domain หรือปลายทางเสี่ยง'],
+  ['AI signal pipeline', 'ส่งเฉพาะสัญญาณสำคัญขึ้น Platform เพื่อวิเคราะห์ สรุป และแนะนำเป็นภาษาไทย'],
+  ['LINE / Email alert', 'แจ้งเตือนเหตุเร่งด่วนให้เจ้าของและทีม IT โดยไม่ต้องเฝ้า dashboard ทั้งวัน'],
+  ['Remote management', 'ตรวจสุขภาพ อัปเดต policy และดูแลอุปกรณ์จากระยะไกล ลดรอบ onsite support'],
+  ['Fail-safe rollout', 'เริ่มจาก monitor mode ก่อน แล้วค่อยเพิ่ม response ตามความพร้อมของแต่ละธุรกิจ'],
 ];
 
 const workflow = [
-  ['01', 'Monitor', 'Edge Pro เฝ้าดูทราฟฟิก DNS URL และสัญญาณผิดปกติจากเครือข่ายจริง'],
-  ['02', 'Detect', 'Platform จัดลำดับความเสี่ยงและแยก noise ออกจากเหตุที่กระทบธุรกิจ'],
-  ['03', 'Explain', 'AI สรุปเป็นภาษาไทยว่าเกิดอะไร เสี่ยงแค่ไหน และควรสนใจเพราะอะไร'],
-  ['04', 'Recommend', 'ระบบเสนอ next step ที่เหมาะกับระดับความเสี่ยงและผลกระทบต่อการทำงาน'],
-  ['05', 'Approve', 'เจ้าของหรือทีม IT อนุมัติก่อน action ที่อาจแตะระบบสำคัญ'],
-  ['06', 'Respond', 'ดำเนินการ แจ้งผล และบันทึก audit log เพื่อทบทวนย้อนหลัง'],
+  ['01', 'Monitor', 'Edge Pro เฝ้าระวังทราฟฟิก DNS URL และสัญญาณผิดปกติจากเครือข่ายจริง'],
+  ['02', 'Detect', 'Platform แยก noise ออกจากเหตุที่เสี่ยงต่อรายได้ ข้อมูลลูกค้า หรือบริการหลัก'],
+  ['03', 'Explain', 'AI สรุป incident เป็นภาษาไทย พร้อมบริบท ผลกระทบ และหลักฐานสำคัญ'],
+  ['04', 'Recommend', 'ระบบเสนอ action ที่เหมาะกับระดับความเสี่ยงและผลกระทบต่อการทำงาน'],
+  ['05', 'Approve', 'เจ้าของหรือทีม IT อนุมัติก่อนตอบสนองกับระบบสำคัญ'],
+  ['06', 'Respond', 'ดำเนินการ แจ้งผล และเก็บ audit log เพื่อทบทวนย้อนหลัง'],
 ];
 
-const smePain = [
+const smeCards = [
   {
-    title: 'ทีมเล็ก งานเยอะ',
-    body: 'SME ส่วนใหญ่ไม่มี SOC หรือผู้เชี่ยวชาญเฝ้าระบบ 24/7 ทำให้ alert ที่มากเกินไปกลายเป็นภาระประจำวัน',
+    label: 'Owner',
+    title: 'เจ้าของธุรกิจต้องเห็นความเสี่ยงแบบไม่ต้องแปลศัพท์เทคนิค',
+    body: 'รู้ว่าเหตุไหนควรหยุด เหตุไหนควรเฝ้าดู และ action ไหนกระทบยอดขายหรือระบบหลังบ้าน',
   },
   {
-    title: 'ศัพท์เทคนิคทำให้ตัดสินใจช้า',
-    body: 'เจ้าของธุรกิจต้องรู้ว่าควรหยุดระบบไหม กระทบยอดขายหรือไม่ และควรทำอะไรก่อน โดยไม่ต้องอ่าน log ยาว ๆ',
+    label: 'Small IT team',
+    title: 'ทีม IT เล็กต้องลดงาน manual และโฟกัสเรื่องสำคัญ',
+    body: 'ลดเวลาคัดกรอง alert ซ้ำ ๆ ด้วยการจัดลำดับเหตุการณ์และสรุป next step ที่ทำต่อได้ทันที',
   },
   {
-    title: 'ความเสี่ยงกระทบรายได้จริง',
-    body: 'Phishing, ransomware, downtime และข้อมูลรั่วไหล กระทบความเชื่อมั่น ลูกค้า คู่ค้า และ supply chain โดยตรง',
+    label: 'Operations',
+    title: 'ธุรกิจต้องลดความเสี่ยงโดยไม่หยุดระบบเกินจำเป็น',
+    body: 'ใช้แนวทางตอบสนองแบบเป็นขั้น เพื่อรับมือเร็วขึ้นโดยยังคุม downtime และความต่อเนื่องของงานหน้าร้าน',
   },
 ];
 
 const packages = [
-  ['Free', 'Cyber Risk Assessment', 'ประเมินความเสี่ยงเบื้องต้นและรับรายงาน awareness'],
-  ['Standard', 'Edge Visibility', 'เหมาะกับร้านค้าและออฟฟิศที่ต้องการมองเห็นความเสี่ยงหน้าไซต์'],
-  ['Professional', 'AI Response Workflow', 'เหมาะกับ SME หลายระบบหรือหลายสาขาที่ต้องการ audit log และ remote management'],
+  ['Free', 'Cyber Risk Assessment', 'ประเมินความเสี่ยงเบื้องต้น รับ awareness report และคำแนะนำจุดเริ่มต้น'],
+  ['Standard', 'Edge Visibility', 'เหมาะกับร้านค้าและออฟฟิศที่ต้องการเห็น DNS/URL risk และ alert สำคัญ'],
+  ['Professional', 'AI Response Workflow', 'เหมาะกับ SME หลายระบบหรือหลายสาขาที่ต้องการ recommendation, approval และ audit log'],
   ['Enterprise', 'Custom Policy & SLA', 'เหมาะกับองค์กรที่ต้องการ integration, compliance support และ policy เฉพาะ'],
 ];
 
 const whyItems = [
   {
     label: 'Productivity',
-    title: 'ลดเวลาคัดกรอง alert',
-    body: 'รวมเหตุสำคัญไว้ในมุมมองเดียว ให้ทีม IT เริ่มจากเรื่องที่กระทบธุรกิจจริงก่อน ลดงาน manual และการ handoff ที่คลุมเครือ',
+    title: 'ให้ทีมเล็กทำงานเหมือนมี SOC เบื้องต้น',
+    body: 'รวมเหตุสำคัญ จัดลำดับความเสี่ยง และสรุปเป็นภาษาไทย ลดเวลาคุยข้ามทีมและลดงานไล่ log เอง',
   },
   {
-    label: 'Risk reduction',
-    title: 'ลดความเสียหายก่อนลุกลาม',
-    body: 'ช่วยเห็นสัญญาณเสี่ยงตั้งแต่ DNS, URL, traffic และ behavior anomaly พร้อมคำแนะนำที่คำนึงถึง downtime',
+    label: 'Lower risk',
+    title: 'ลดโอกาสเหตุเล็กกลายเป็น downtime ใหญ่',
+    body: 'ช่วยเห็น phishing, ransomware signal, DNS risk และ traffic anomaly ก่อนกระทบวงกว้าง',
   },
   {
-    label: 'Business control',
-    title: 'ให้เจ้าของยังคุมการตัดสินใจ',
-    body: 'Critical response ต้องผ่าน approval ช่วยให้ AI เป็นผู้ช่วยที่ไวและรอบคอบ ไม่ใช่ระบบอัตโนมัติที่เสี่ยงเกินไป',
+    label: 'Thai-first',
+    title: 'สื่อสารความเสี่ยงให้คนตัดสินใจเข้าใจจริง',
+    body: 'ออกแบบจากบริบท SME ไทย ทั้งภาษา ช่องทางแจ้งเตือน งบประมาณ และทีมที่มีคนจำกัด',
   },
   {
-    label: 'Scale path',
-    title: 'เริ่มฟรี ขยายเป็น package ได้',
-    body: 'Risk assessment สร้าง awareness และ lead จากนั้นแนะนำ demo, pilot หรือ package ตามระดับความเสี่ยงขององค์กร',
+    label: 'Pilot-ready',
+    title: 'เริ่มจากไซต์จริง แล้วขยายเป็น package ได้',
+    body: 'เริ่มด้วย assessment และ Edge visibility ก่อนค่อยเพิ่ม policy, response workflow และ SLA ตามระดับความเสี่ยง',
   },
 ];
 
 const footerLinks = [
   ['Platform', '#platform'],
-  ['K9 Edge Pro', '#edge-device'],
+  ['Edge Pro', '#edge-device'],
   ['How it works', '#how-it-works'],
   ['Thai SMEs', '#thai-smes'],
-  ['Request Demo', '#demo'],
+  ['Why K9', '#why-k9'],
+  ['Demo', '#demo'],
 ];
 
 function Logo() {
@@ -122,19 +144,19 @@ function Logo() {
 
 function ProductConsole() {
   return (
-    <div className="console-card" aria-label="Bangkaew K9 platform console preview">
+    <div className="console-card" aria-label="Bangkaew K9 live risk console preview">
       <div className="console-topbar">
         <span>Live Risk Console</span>
-        <b>Human approval required</b>
+        <b>Approval required</b>
       </div>
       <div className="console-grid">
         <div className="risk-score">
           <span>Risk level</span>
           <strong>High</strong>
-          <p>Suspicious DNS activity detected at Branch 02</p>
+          <p>Suspicious DNS activity at Branch 02</p>
         </div>
         <div className="signal-stack">
-          {['Phishing domain blocked', 'Unusual outbound traffic', 'Policy review suggested'].map((item) => (
+          {['Phishing domain blocked', 'AI summary ready', 'Owner approval pending'].map((item) => (
             <div key={item}>
               <i />
               <span>{item}</span>
@@ -174,24 +196,21 @@ export default function Home() {
             <span>for Thai SMEs.</span>
           </h1>
           <p className="hero-lead">
-            Bangkaew K9 combines Edge Pro hardware, AI risk explanation, and human approval workflow so small teams
-            can detect early, work faster, and reduce operational cyber risk.
+            Bangkaew K9 ผสาน K9 Edge Pro, AI risk explanation และ human approval workflow เพื่อให้ SME ไทยตรวจจับเร็ว
+            ทำงานไวขึ้น และลดความเสี่ยงไซเบอร์โดยไม่เสียการควบคุม
           </p>
           <div className="thai-motto">ดมไว เห่าทัน เฝ้าบ้านอย่างใส่ใจ</div>
           <div className="hero-actions">
-            <a className="btn btn-primary btn-large" href="#demo">
-              ขอ Demo
+            <a className="btn btn-primary btn-large" href="#risk-assessment">
+              ประเมินความเสี่ยงฟรี
             </a>
             <a className="btn btn-secondary btn-large" href="#edge-device">
               ดู K9 Edge Pro
             </a>
           </div>
-          <div className="hero-stats">
-            {heroStats.map(([title, body]) => (
-              <div key={title}>
-                <strong>{title}</strong>
-                <span>{body}</span>
-              </div>
+          <div className="hero-pills" aria-label="Bangkaew K9 core capabilities">
+            {heroPills.map((pill) => (
+              <span key={pill}>{pill}</span>
             ))}
           </div>
         </div>
@@ -213,16 +232,32 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section impact-section" aria-labelledby="problem-impact-heading">
+        <div className="section-heading section-heading-wide">
+          <p>Problem & Impact</p>
+          <h2 id="problem-impact-heading">SME ไทยต้องรับมือภัยไซเบอร์ที่เร็วขึ้น ด้วยทีมที่เล็กกว่าที่ควรจะเป็น</h2>
+        </div>
+        <div className="impact-grid">
+          {impactCards.map((card) => (
+            <article className="impact-card" key={card.label}>
+              <span>{card.label}</span>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="platform" className="section">
         <div className="section-heading">
-          <p>The Cyber Watchdog Platform</p>
-          <h2>เห็นภัยก่อน เข้าใจเร็ว และตัดสินใจโดยมีข้อมูลครบ</h2>
+          <p>Cyber Watchdog Platform</p>
+          <h2>ตรวจจับ อธิบาย แนะนำ และรอการอนุมัติก่อน action สำคัญ</h2>
         </div>
         <div className="platform-grid">
           {platformCards.map((card) => (
-            <article className="feature-card" key={card.title}>
-              <span>{card.title}</span>
-              <h3>{card.thai}</h3>
+            <article className="feature-card" key={card.label}>
+              <span>{card.label}</span>
+              <h3>{card.title}</h3>
               <p>{card.body}</p>
             </article>
           ))}
@@ -233,7 +268,7 @@ export default function Home() {
         <div className="edge-visual">
           <div className="edge-label">
             <span>K9 Edge Pro</span>
-            <b>Pilot-ready appliance</b>
+            <b>Commercial edge appliance</b>
           </div>
           <Image
             src="/k9-edge-pro-hero.png"
@@ -245,11 +280,11 @@ export default function Home() {
           />
         </div>
         <div className="edge-copy">
-          <p className="eyebrow">Commercial Edge Appliance</p>
+          <p className="eyebrow">K9 Edge Pro</p>
           <h2>ฮาร์ดแวร์หน้าไซต์ที่ทำให้ AI เห็นความเสี่ยงจากเครือข่ายจริง</h2>
           <p>
-            Edge Pro ถูกออกแบบให้เริ่มจากการมองเห็นก่อน แล้วค่อยขยายไปสู่ policy และ response workflow ตามความพร้อม
-            ช่วยให้ SME ทดลองใช้งานจริงได้โดยไม่ต้องเปลี่ยนระบบทั้งหมดในวันแรก
+            ติดตั้งที่ไซต์ของลูกค้าเพื่อเริ่มจาก visibility ก่อน แล้วค่อยเพิ่ม policy และ response workflow ตามความพร้อม
+            เหมาะกับธุรกิจที่ต้องการทดลองจากระบบจริงโดยไม่ต้องเปลี่ยน infrastructure ทั้งหมดในวันแรก
           </p>
           <div className="edge-feature-grid">
             {edgeFeatures.map(([title, body]) => (
@@ -278,40 +313,63 @@ export default function Home() {
         </div>
       </section>
 
-      <section id="thai-smes" className="section sme-section">
+      <section id="thai-smes" className="section">
         <div className="section-heading">
           <p>Built for Thai SMEs</p>
-          <h2>ออกแบบจาก pain point จริงของเจ้าของกิจการและทีม IT ขนาดเล็ก</h2>
+          <h2>ออกแบบให้เจ้าของกิจการและทีม IT ขนาดเล็กทำงานเร็วขึ้น</h2>
         </div>
-        <div className="sme-layout">
-          <div className="pain-stack">
-            {smePain.map((item) => (
-              <article key={item.title}>
-                <h3>{item.title}</h3>
-                <p>{item.body}</p>
-              </article>
-            ))}
-          </div>
-          <div className="package-panel">
-            <p className="eyebrow">Business model path</p>
-            <h3>เริ่มจาก Risk Assessment ฟรี แล้วแนะนำ package ตามระดับความเสี่ยง</h3>
-            <div className="package-list">
-              {packages.map(([tier, title, body]) => (
-                <div key={tier}>
-                  <span>{tier}</span>
-                  <strong>{title}</strong>
-                  <p>{body}</p>
-                </div>
-              ))}
+        <div className="sme-grid">
+          {smeCards.map((card) => (
+            <article className="sme-card" key={card.label}>
+              <span>{card.label}</span>
+              <h3>{card.title}</h3>
+              <p>{card.body}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
+      <section id="risk-assessment" className="section risk-section">
+        <div className="risk-copy">
+          <p className="eyebrow">Free Cyber Risk Assessment</p>
+          <h2>รู้ระดับความเสี่ยงก่อนลงทุน แล้วค่อยเลือกทางรับมือที่เหมาะกับองค์กร</h2>
+          <p>
+            เริ่มจากแบบประเมินความเสี่ยงฟรีเพื่อสร้าง awareness ให้เจ้าของธุรกิจ เห็นจุดอ่อนเบื้องต้น และใช้ผลประเมินเป็นทางเข้าสู่ demo หรือ pilot ที่เหมาะกับระดับความเสี่ยง
+          </p>
+          <a className="btn btn-primary btn-large" href="#demo">
+            ขอ Demo สำหรับ Assessment
+          </a>
+        </div>
+        <div className="assessment-steps" aria-label="Free cyber risk assessment flow">
+          {['ตอบคำถาม 3 นาที', 'รับระดับความเสี่ยง', 'เห็น pain point สำคัญ', 'แนะนำ package ที่เหมาะสม'].map((step, index) => (
+            <div key={step}>
+              <span>{String(index + 1).padStart(2, '0')}</span>
+              <strong>{step}</strong>
             </div>
-          </div>
+          ))}
+        </div>
+      </section>
+
+      <section className="section package-section" aria-labelledby="package-path-heading">
+        <div className="section-heading section-heading-wide">
+          <p>Package Path</p>
+          <h2 id="package-path-heading">เริ่มฟรีจาก assessment แล้วขยายตามขนาดองค์กรและระดับความเสี่ยง</h2>
+        </div>
+        <div className="package-list">
+          {packages.map(([tier, title, body]) => (
+            <article className="package-card" key={tier}>
+              <span>{tier}</span>
+              <h3>{title}</h3>
+              <p>{body}</p>
+            </article>
+          ))}
         </div>
       </section>
 
       <section id="why-k9" className="section">
         <div className="section-heading">
           <p>Why Bangkaew K9</p>
-          <h2>เพิ่ม productivity ลดความเสี่ยง และทำให้ cybersecurity เป็นเรื่องที่ตัดสินใจได้</h2>
+          <h2>เพิ่ม productivity ลด operational risk และทำให้ cybersecurity เป็นเรื่องที่ตัดสินใจได้</h2>
         </div>
         <div className="why-grid">
           {whyItems.map((item) => (
@@ -327,17 +385,17 @@ export default function Home() {
       <section id="demo" className="cta-section">
         <div className="cta-panel">
           <p className="eyebrow">Demo / Pilot-ready flow</p>
-          <h2>รู้ระดับความเสี่ยงก่อนลงทุน แล้วเริ่ม pilot จากไซต์จริงได้ทันที</h2>
+          <h2>เริ่มจากการมองเห็นความเสี่ยง แล้วให้ AI ช่วยอธิบายก่อนตัดสินใจ</h2>
           <p>
-            Bangkaew K9 พร้อมเล่า demo flow ตั้งแต่ Edge Pro เห็นสัญญาณผิดปกติ, AI อธิบายเป็นภาษาไทย, ระบบแนะนำ action,
-            คนอนุมัติ และบันทึก audit log เพื่อใช้ทบทวนภายหลัง
+            Bangkaew K9 พร้อมเล่า demo flow ตั้งแต่ Edge Pro เห็นสัญญาณผิดปกติ, AI สรุปเป็นภาษาไทย, ระบบแนะนำ action,
+            คนอนุมัติ และบันทึก audit log เพื่อใช้ทบทวนย้อนหลัง
           </p>
           <div className="cta-actions">
             <a className="btn btn-primary btn-large" href="mailto:hello@bangkaew-k9.example">
               Request demo
             </a>
-            <a className="btn btn-secondary btn-large" href="#thai-smes">
-              ดู package path
+            <a className="btn btn-secondary btn-large" href="#risk-assessment">
+              ประเมินความเสี่ยงฟรี
             </a>
           </div>
         </div>
