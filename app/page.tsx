@@ -1,11 +1,14 @@
 import Image from 'next/image';
 import RiskAssessment from './RiskAssessment';
+import ThreatRadar from './ThreatRadar';
 
 const navItems = [
+  { label: 'Problem', href: '#problem' },
   { label: 'Platform', href: '#platform' },
   { label: 'Edge Pro', href: '#edge-device' },
   { label: 'How it works', href: '#how-it-works' },
-  { label: 'Thai SMEs', href: '#thai-smes' },
+  { label: 'Compare', href: '#compare' },
+  { label: 'Ready Now', href: '#ready-now' },
   { label: 'Why K9', href: '#why-k9' },
 ];
 
@@ -13,6 +16,13 @@ const heroPills = [
   'Edge visibility',
   'Thai AI explanation',
   'Human approval',
+];
+
+const cyberStats = [
+  { number: '฿1.1 แสนล้าน', label: 'ความเสียหายจาก cybercrime ในไทยปี 2024', source: 'DE 2024' },
+  { number: '3.1 ล้าน', label: 'SME ไทยที่ยังไม่มี cyber protection', source: 'OSMEP' },
+  { number: '71%', label: 'ของการโจมตีทั่วโลกพุ่งเป้า SMBs', source: 'Verizon DBIR' },
+  { number: '277 วัน', label: 'เวลาเฉลี่ยกว่าจะตรวจพบ breach', source: 'IBM 2024' },
 ];
 
 const impactCards = [
@@ -123,12 +133,82 @@ const whyItems = [
 ];
 
 const footerLinks = [
+  ['Problem', '#problem'],
   ['Platform', '#platform'],
   ['Edge Pro', '#edge-device'],
   ['How it works', '#how-it-works'],
-  ['Thai SMEs', '#thai-smes'],
+  ['Compare', '#compare'],
+  ['Ready Now', '#ready-now'],
   ['Why K9', '#why-k9'],
   ['Demo', '#demo'],
+];
+
+const comparisonRows = [
+  { feature: 'เฝ้าระวังต่อเนื่อง 24/7', antivirus: false, mssp: true, k9: true },
+  { feature: 'อธิบายเหตุเป็นภาษาไทย', antivirus: false, mssp: false, k9: true },
+  { feature: 'Human-in-the-Loop approval', antivirus: false, mssp: false, k9: true },
+  { feature: 'Edge hardware หน้าไซต์', antivirus: false, mssp: false, k9: true },
+  { feature: 'LINE / Email alert', antivirus: false, mssp: 'บางราย', k9: true },
+  { feature: 'Audit log พร้อมเหตุผล', antivirus: false, mssp: 'บางราย', k9: true },
+  { feature: 'ราคา SME เข้าถึงได้', antivirus: true, mssp: false, k9: true },
+  { feature: 'ไม่ต้องมีทีม Security เอง', antivirus: true, mssp: false, k9: true },
+  { feature: 'ติดตั้งภายใน 30 นาที', antivirus: true, mssp: false, k9: true },
+];
+
+const readyNowItems = [
+  {
+    icon: '🌐',
+    title: 'Landing Page พร้อม Production',
+    desc: 'เว็บไซต์สมบูรณ์ responsive, SEO, deploy บน Vercel',
+  },
+  {
+    icon: '📊',
+    title: 'Cyber Risk Assessment Tool',
+    desc: 'แบบประเมินฟรี → ผลลัพธ์ Low/Med/High/Critical → แนะนำ package',
+  },
+  {
+    icon: '🖥️',
+    title: 'AI Demo Workflow',
+    desc: 'Demo flow 60-90 วินาที: ตรวจจับ → อธิบายภาษาไทย → แนะนำ → อนุมัติ → Audit log',
+  },
+  {
+    icon: '📡',
+    title: 'K9 Edge Pro Prototype',
+    desc: 'อุปกรณ์ต้นแบบพร้อม DNS Guard, Network Monitor, Fail-safe design',
+  },
+  {
+    icon: '🤖',
+    title: 'Thai AI Explanation Engine',
+    desc: 'LLM + Prompt Engineering แปลง technical alert เป็นภาษาไทยที่เข้าใจได้',
+  },
+  {
+    icon: '📋',
+    title: 'Architecture & Spec Docs',
+    desc: 'System architecture, Edge Pro spec, workflow design, competitive analysis',
+  },
+];
+
+const gtmCards = [
+  {
+    market: 'ภาคเอกชน',
+    icon: '🏢',
+    points: [
+      'ROI: ลดเวลาคัดกรอง alert, ลด downtime risk',
+      'Free Risk Assessment → Lead → Demo → Paid',
+      'Partner กับ MSP / IT provider',
+      'Content: case study, webinar, demo video',
+    ],
+  },
+  {
+    market: 'ภาครัฐ & Ecosystem',
+    icon: '🏛️',
+    points: [
+      'ขึ้นทะเบียนบัญชีนวัตกรรมไทย',
+      'ขึ้นทะเบียนบัญชีบริการดิจิทัล depa',
+      'Pilot กับ SME cluster / หน่วยงานรัฐ',
+      'Align นโยบาย digital trust / PDPA / cyber resilience',
+    ],
+  },
 ];
 
 function Logo() {
@@ -217,6 +297,7 @@ export default function Home() {
         </div>
 
         <div className="hero-product">
+          <ThreatRadar />
           <div className="device-stage">
             <div className="device-halo" />
             <Image
@@ -230,6 +311,22 @@ export default function Home() {
             />
           </div>
           <ProductConsole />
+        </div>
+      </section>
+
+      <section id="problem" className="section cyberstats-section" aria-labelledby="cyberstats-heading">
+        <div className="section-heading section-heading-wide">
+          <p>The numbers don&apos;t lie</p>
+          <h2 id="cyberstats-heading">ตัวเลขจริงที่ SME ไทยต้องรู้</h2>
+        </div>
+        <div className="cyberstats-grid">
+          {cyberStats.map((stat) => (
+            <article className="cyberstat-card" key={stat.label}>
+              <strong>{stat.number}</strong>
+              <p>{stat.label}</p>
+              <small>{stat.source}</small>
+            </article>
+          ))}
         </div>
       </section>
 
@@ -314,6 +411,53 @@ export default function Home() {
         </div>
       </section>
 
+      <section id="compare" className="section comparison-section" aria-labelledby="comparison-heading">
+        <div className="section-heading section-heading-wide">
+          <p>Compare options</p>
+          <h2 id="comparison-heading">Antivirus vs MSSP vs Bangkaew K9</h2>
+          <p className="section-sub">เปรียบเทียบทางเลือกสำหรับ SME ไทยที่ต้องการ cyber protection</p>
+        </div>
+        <div className="comparison-table-wrap">
+          <table className="comparison-table" role="table">
+            <thead>
+              <tr>
+                <th>ฟีเจอร์</th>
+                <th>Antivirus</th>
+                <th>MSSP / MDR</th>
+                <th className="col-k9">Bangkaew K9</th>
+              </tr>
+            </thead>
+            <tbody>
+              {comparisonRows.map((row) => (
+                <tr key={row.feature}>
+                  <td>{row.feature}</td>
+                  <td>{typeof row.antivirus === 'boolean' ? (row.antivirus ? '✓' : '✗') : row.antivirus}</td>
+                  <td>{typeof row.mssp === 'boolean' ? (row.mssp ? '✓' : '✗') : row.mssp}</td>
+                  <td className="col-k9">{typeof row.k9 === 'boolean' ? (row.k9 ? '✓' : '✗') : row.k9}</td>
+                </tr>
+              ))}
+            </tbody>
+          </table>
+        </div>
+      </section>
+
+      <section id="ready-now" className="section credibility-section" aria-labelledby="credibility-heading">
+        <div className="section-heading section-heading-wide">
+          <p>What&apos;s ready now</p>
+          <h2 id="credibility-heading">ไม่ได้แค่คิด — สิ่งที่ทำสำเร็จแล้ว</h2>
+          <p className="section-sub">Built on existing network monitoring and security workflow — not starting from zero</p>
+        </div>
+        <div className="credibility-grid">
+          {readyNowItems.map((item) => (
+            <article className="credibility-card" key={item.title}>
+              <span className="credibility-icon">{item.icon}</span>
+              <h3>{item.title}</h3>
+              <p>{item.desc}</p>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="thai-smes" className="section">
         <div className="section-heading">
           <p>Built for Thai SMEs</p>
@@ -364,14 +508,47 @@ export default function Home() {
         </div>
       </section>
 
+      <section className="section gtm-section" aria-labelledby="gtm-heading">
+        <div className="section-heading section-heading-wide">
+          <p>Go-to-Market</p>
+          <h2 id="gtm-heading">แผนตลาดที่ชัดเจนทั้งภาคเอกชนและภาครัฐ</h2>
+        </div>
+        <div className="gtm-grid">
+          {gtmCards.map((card) => (
+            <article className="gtm-card" key={card.market}>
+              <span className="gtm-icon">{card.icon}</span>
+              <h3>{card.market}</h3>
+              <ul>
+                {card.points.map((point) => (
+                  <li key={point}>{point}</li>
+                ))}
+              </ul>
+            </article>
+          ))}
+        </div>
+      </section>
+
       <section id="demo" className="cta-section">
         <div className="cta-panel">
-          <p className="eyebrow">Demo / Pilot-ready flow</p>
-          <h2>เริ่มจากการมองเห็นความเสี่ยง แล้วให้ AI ช่วยอธิบายก่อนตัดสินใจ</h2>
-          <p>
-            Bangkaew K9 พร้อมเล่า demo flow ตั้งแต่ Edge Pro เห็นสัญญาณผิดปกติ, AI สรุปเป็นภาษาไทย, ระบบแนะนำ action,
-            คนอนุมัติ และบันทึก audit log เพื่อใช้ทบทวนย้อนหลัง
-          </p>
+          <p className="eyebrow">Live Demo Flow</p>
+          <h2>ดู Bangkaew K9 ทำงานจริงใน 90 วินาที</h2>
+          <div className="demo-steps">
+            {[
+              { num: '01', title: 'Edge Pro เห็นสัญญาณ', desc: 'อุปกรณ์ตรวจจับทราฟฟิกและ DNS ที่น่าสงสัยจากเครือข่ายจริง' },
+              { num: '02', title: 'AI วิเคราะห์และอธิบาย', desc: 'ระบบสรุปเหตุการณ์เป็นภาษาไทย พร้อมระดับความเสี่ยงและผลกระทบ' },
+              { num: '03', title: 'แนะนำ Action', desc: 'เสนอ next step แบบเป็นขั้น คำนึงถึง downtime และผลกระทบต่อธุรกิจ' },
+              { num: '04', title: 'Human Approve', desc: 'เจ้าของหรือทีม IT อนุมัติก่อนดำเนินการกับระบบสำคัญ' },
+              { num: '05', title: 'Audit Log', desc: 'บันทึกเหตุการณ์ เหตุผล และการอนุมัติ ตรวจสอบย้อนหลังได้' },
+            ].map((step) => (
+              <div className="demo-step" key={step.num}>
+                <span className="demo-step-num">{step.num}</span>
+                <div>
+                  <strong>{step.title}</strong>
+                  <p>{step.desc}</p>
+                </div>
+              </div>
+            ))}
+          </div>
           <div className="cta-actions">
             <a className="btn btn-primary btn-large" href="mailto:hello@bangkaew-k9.example">
               Request demo
