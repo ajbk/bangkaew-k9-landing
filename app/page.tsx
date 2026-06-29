@@ -19,10 +19,10 @@ const heroPills = [
 ];
 
 const cyberStats = [
-  { number: '฿1.1 แสนล้าน', label: 'ความเสียหายจาก cybercrime ในไทยปี 2024', source: 'DE 2024' },
-  { number: '3.1 ล้าน', label: 'SME ไทยที่ยังไม่มี cyber protection', source: 'OSMEP' },
-  { number: '71%', label: 'ของการโจมตีทั่วโลกพุ่งเป้า SMBs', source: 'Verizon DBIR' },
-  { number: '277 วัน', label: 'เวลาเฉลี่ยกว่าจะตรวจพบ breach', source: 'IBM 2024' },
+  { number: '60+ พันล้าน', label: 'ความเสียหาย cybercrime ไทยปี 2024 (400,000+ cases)', source: 'Royal Thai Police / TCSD' },
+  { number: '3.1 ล้าน', label: 'SME ไทยที่ยังไม่มี cyber protection (85% micro)', source: 'OSMEP / SEED-UNDP' },
+  { number: '4,841', label: 'ransomware attacks ที่พุ่งเป้าธุรกิจไทย H1 2024', source: 'Kaspersky' },
+  { number: '277 วัน', label: 'เวลาเฉลี่ยกว่าจะตรวจพบ breach (identify + contain)', source: 'IBM 2024' },
 ];
 
 const impactCards = [
