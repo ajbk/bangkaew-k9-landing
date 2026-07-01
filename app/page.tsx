@@ -1,6 +1,8 @@
 import Image from 'next/image';
 import RiskAssessment from './RiskAssessment';
+import SubsidyCalculator from './SubsidyCalculator';
 import ThreatRadar from './ThreatRadar';
+import { formatCoverage, formatThaiBaht, k9Packages, priceStrategyPillars } from './pricing';
 
 const navItems = [
   { label: 'Problem', href: '#problem' },
@@ -100,13 +102,6 @@ const smeCards = [
     title: 'ธุรกิจต้องลดความเสี่ยงโดยไม่หยุดระบบเกินจำเป็น',
     body: 'ใช้แนวทางตอบสนองแบบเป็นขั้น เพื่อรับมือเร็วขึ้นโดยยังคุม downtime และความต่อเนื่องของงานหน้าร้าน',
   },
-];
-
-const packages = [
-  ['Free', 'Cyber Risk Assessment', 'ประเมินความเสี่ยงเบื้องต้น รับ awareness report และคำแนะนำจุดเริ่มต้น'],
-  ['Standard', 'Edge Visibility', 'เหมาะกับร้านค้าและออฟฟิศที่ต้องการเห็น DNS/URL risk และ alert สำคัญ'],
-  ['Professional', 'AI Response Workflow', 'เหมาะกับ SME หลายระบบหรือหลายสาขาที่ต้องการ recommendation, approval และ audit log'],
-  ['Enterprise', 'Custom Policy & SLA', 'เหมาะกับองค์กรที่ต้องการ integration, compliance support และ policy เฉพาะ'],
 ];
 
 const whyItems = [
@@ -478,18 +473,43 @@ export default function Home() {
 
       <section className="section package-section" aria-labelledby="package-path-heading">
         <div className="section-heading section-heading-wide">
-          <p>Package Path</p>
-          <h2 id="package-path-heading">เริ่มฟรีจาก assessment แล้วขยายตามขนาดองค์กรและระดับความเสี่ยง</h2>
+          <p>Price Strategy</p>
+          <h2 id="package-path-heading">ราคาแยกตาม endpoint segment แล้วขยายด้วยจำนวนเครื่องและไซต์จริง</h2>
+          <p className="section-sub">
+            ใช้โมเดลเดียวกันตั้งแต่ home user, mobile workforce, office, SME หลายสาขา ไปจนถึง manufacturer/OT
+          </p>
         </div>
-        <div className="package-list">
-          {packages.map(([tier, title, body]) => (
-            <article className="package-card" key={tier}>
-              <span>{tier}</span>
-              <h3>{title}</h3>
-              <p>{body}</p>
+        <div className="price-strategy-grid">
+          {priceStrategyPillars.map((item) => (
+            <article className="price-strategy-card" key={item.label}>
+              <span>{item.label}</span>
+              <h3>{item.title}</h3>
+              <p>{item.body}</p>
             </article>
           ))}
         </div>
+        <div className="package-list">
+          {k9Packages.map((item) => (
+            <article className="package-card" key={item.id}>
+              <span>{item.segment}</span>
+              <h3>{item.name}</h3>
+              <div className="package-price">
+                {formatThaiBaht(item.monthlyPrice)}
+                <small>/{item.priceUnit}</small>
+              </div>
+              <p>{item.description}</p>
+              <ul className="package-details">
+                <li>{item.endpointSegment}</li>
+                <li>{formatCoverage(item)}</li>
+                <li>{item.role}</li>
+              </ul>
+              <small className="package-meta">
+                {item.target} · {item.buyer}
+              </small>
+            </article>
+          ))}
+        </div>
+        <SubsidyCalculator />
       </section>
 
       <section id="why-k9" className="section">

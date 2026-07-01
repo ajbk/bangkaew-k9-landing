@@ -35,7 +35,7 @@ const assessmentItems = [
   },
 ];
 
-function getAssessmentResult(score: number) {
+export function getAssessmentResult(score: number) {
   if (score >= 5) {
     return {
       level: 'Critical',

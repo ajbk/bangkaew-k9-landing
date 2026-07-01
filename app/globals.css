@@ -1,3 +1,5 @@
+@import url("https://fonts.googleapis.com/css2?family=Kanit:wght@300;400;500;600;700;800;900&display=swap");
+
 @tailwind base;
 @tailwind components;
 @tailwind utilities;
@@ -991,8 +993,308 @@ section[id] {
   margin-bottom: 1.75rem;
 }
 
+.price-strategy-grid {
+  display: grid;
+  grid-template-columns: repeat(4, minmax(0, 1fr));
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+
+.price-strategy-card {
+  position: relative;
+  overflow: hidden;
+  min-height: 220px;
+  border: 1px solid rgba(22, 214, 165, 0.14);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 18% 0%, rgba(22, 214, 165, 0.11), transparent 12rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.058), rgba(255, 255, 255, 0.02));
+  padding: 1.15rem;
+}
+
+.price-strategy-card span {
+  display: inline-flex;
+  min-height: 28px;
+  align-items: center;
+  border: 1px solid rgba(22, 214, 165, 0.24);
+  border-radius: 999px;
+  background: rgba(22, 214, 165, 0.07);
+  color: #8ff9d5;
+  font-size: 0.72rem;
+  font-weight: 850;
+  padding: 0.25rem 0.62rem;
+}
+
+.price-strategy-card h3 {
+  margin: 1rem 0 0;
+  color: #ffffff;
+  font-size: 1.08rem;
+  font-weight: 850;
+  line-height: 1.38;
+}
+
+.price-strategy-card p {
+  color: #a9bad3;
+  font-size: 0.88rem;
+  font-weight: 300;
+  line-height: 1.7;
+}
+
 .package-card {
-  min-height: 240px;
+  min-height: 380px;
+}
+
+.package-price {
+  display: flex;
+  align-items: baseline;
+  gap: 0.28rem;
+  margin-top: 1rem;
+  color: #ffffff;
+  font-size: 1.8rem;
+  font-weight: 900;
+  line-height: 1;
+}
+
+.package-price small {
+  color: #8ea6c5;
+  font-size: 0.82rem;
+  font-weight: 700;
+}
+
+.package-meta {
+  display: block;
+  margin-top: 1rem;
+  color: #16d6a5;
+  font-size: 0.8rem;
+  font-weight: 800;
+  line-height: 1.45;
+}
+
+.package-details {
+  display: grid;
+  gap: 0.45rem;
+  margin: 1rem 0 0;
+  padding: 0;
+  list-style: none;
+}
+
+.package-details li {
+  display: flex;
+  gap: 0.52rem;
+  color: #c7d7ed;
+  font-size: 0.82rem;
+  line-height: 1.48;
+}
+
+.package-details li::before {
+  content: "";
+  width: 6px;
+  height: 6px;
+  flex: 0 0 auto;
+  margin-top: 0.48rem;
+  border-radius: 999px;
+  background: #17c7e6;
+  box-shadow: 0 0 12px rgba(23, 199, 230, 0.55);
+}
+
+.subsidy-calculator {
+  display: grid;
+  grid-template-columns: minmax(0, 0.72fr) minmax(0, 1.28fr);
+  gap: 1rem;
+  margin-top: 1rem;
+  border: 1px solid rgba(125, 211, 252, 0.18);
+  border-radius: 8px;
+  background:
+    radial-gradient(circle at 12% 0%, rgba(22, 214, 165, 0.14), transparent 18rem),
+    linear-gradient(180deg, rgba(255, 255, 255, 0.064), rgba(255, 255, 255, 0.022));
+  box-shadow: 0 30px 90px rgba(0, 0, 0, 0.3), inset 0 1px 0 rgba(255, 255, 255, 0.07);
+  padding: clamp(1rem, 3vw, 1.4rem);
+}
+
+.subsidy-copy {
+  padding: 0.4rem;
+}
+
+.subsidy-copy h3 {
+  margin: 0.7rem 0 0;
+  color: #ffffff;
+  font-size: clamp(1.6rem, 3vw, 2.7rem);
+  font-weight: 900;
+  line-height: 1.08;
+}
+
+.subsidy-copy p:not(.eyebrow) {
+  color: #a9bad3;
+  font-weight: 300;
+  line-height: 1.78;
+}
+
+.subsidy-tool {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) minmax(260px, 0.82fr);
+  gap: 1rem;
+}
+
+.subsidy-picker,
+.subsidy-controls,
+.subsidy-result {
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 8px;
+  background: rgba(2, 7, 17, 0.34);
+  padding: 1rem;
+}
+
+.subsidy-picker {
+  grid-row: span 2;
+}
+
+.calculator-label {
+  display: block;
+  color: #8beaff;
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.calculator-label-spaced {
+  margin-top: 0.9rem;
+}
+
+.subsidy-package-grid {
+  display: grid;
+  gap: 0.55rem;
+  margin-top: 0.75rem;
+}
+
+.subsidy-package,
+.subsidy-preset {
+  border: 1px solid rgba(125, 211, 252, 0.13);
+  border-radius: 8px;
+  background: rgba(255, 255, 255, 0.045);
+  color: inherit;
+  text-align: left;
+  transition: border-color 170ms ease, background-color 170ms ease, transform 170ms ease;
+}
+
+.subsidy-package {
+  display: grid;
+  gap: 0.25rem;
+  min-height: 64px;
+  padding: 0.8rem;
+}
+
+.subsidy-package:hover,
+.subsidy-preset:hover {
+  border-color: rgba(23, 199, 230, 0.32);
+  transform: translateY(-1px);
+}
+
+.subsidy-package strong {
+  color: #ffffff;
+  font-size: 0.92rem;
+  font-weight: 850;
+}
+
+.subsidy-package span {
+  color: #8ea6c5;
+  font-size: 0.78rem;
+  line-height: 1.4;
+}
+
+.subsidy-package.is-selected,
+.subsidy-preset.is-selected {
+  border-color: rgba(23, 199, 230, 0.48);
+  background: linear-gradient(135deg, rgba(47, 125, 246, 0.22), rgba(22, 214, 165, 0.1));
+  box-shadow: 0 0 28px rgba(23, 199, 230, 0.11);
+}
+
+.range-row {
+  display: grid;
+  grid-template-columns: minmax(0, 1fr) auto;
+  align-items: center;
+  gap: 0.9rem;
+  margin-top: 0.75rem;
+}
+
+.range-row input {
+  width: 100%;
+  accent-color: #17c7e6;
+}
+
+.range-row strong {
+  color: #ffffff;
+  font-size: 1.1rem;
+  font-weight: 900;
+}
+
+.subsidy-presets {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.45rem;
+  margin-top: 0.85rem;
+}
+
+.subsidy-preset {
+  min-height: 34px;
+  padding: 0.48rem 0.62rem;
+  color: #c7d7ed;
+  font-size: 0.78rem;
+  font-weight: 800;
+}
+
+.subsidy-result {
+  background:
+    radial-gradient(circle at 82% 6%, rgba(23, 199, 230, 0.16), transparent 12rem),
+    rgba(255, 255, 255, 0.045);
+}
+
+.subsidy-result > span {
+  color: #8beaff;
+  font-size: 0.74rem;
+  font-weight: 900;
+  text-transform: uppercase;
+}
+
+.subsidy-result > strong {
+  display: block;
+  margin-top: 0.52rem;
+  color: #ffffff;
+  font-size: clamp(2rem, 4vw, 3.2rem);
+  font-weight: 900;
+  line-height: 1;
+}
+
+.subsidy-result p {
+  color: #a9bad3;
+  font-size: 0.9rem;
+  line-height: 1.7;
+}
+
+.subsidy-result dl {
+  display: grid;
+  gap: 0.55rem;
+  margin: 1rem 0 0;
+}
+
+.subsidy-result dl div {
+  display: flex;
+  justify-content: space-between;
+  gap: 1rem;
+  border-top: 1px solid rgba(255, 255, 255, 0.08);
+  padding-top: 0.55rem;
+}
+
+.subsidy-result dt {
+  color: #8ea6c5;
+  font-size: 0.78rem;
+}
+
+.subsidy-result dd {
+  margin: 0;
+  color: #ffffff;
+  font-size: 0.82rem;
+  font-weight: 850;
+  text-align: right;
 }
 
 .cta-section {
@@ -1305,7 +1607,8 @@ section[id] {
 @media (max-width: 1180px) {
   .platform-grid,
   .why-grid,
-  .package-list {
+  .package-list,
+  .price-strategy-grid {
     grid-template-columns: repeat(2, minmax(0, 1fr));
   }
 
@@ -1344,7 +1647,9 @@ section[id] {
   .edge-section,
   .sme-grid,
   .assessment-section,
-  .assessment-tool {
+  .assessment-tool,
+  .subsidy-calculator,
+  .subsidy-tool {
     grid-template-columns: 1fr;
   }
 
@@ -1399,6 +1704,7 @@ section[id] {
   .workflow-grid,
   .edge-feature-grid,
   .package-list,
+  .price-strategy-grid,
   .assessment-tool,
   .credibility-grid,
   .gtm-grid {
